@@ -449,6 +449,7 @@ bjc-6500                CANON BJC 6500
 bjc-7000                CANON BJC 7000
 bjc-7100                CANON BJC 7100
 bjc-8200                CANON BJC 8200
+bjc-s200                CANON S200
 bjc-s400                CANON S400
 bjc-s450                CANON S450
 bjc-s800                CANON S800
@@ -461,12 +462,19 @@ escp2-c41sx             EPSON Stylus C41SX
 escp2-c41ux             EPSON Stylus C41UX
 escp2-c42sx             EPSON Stylus C42SX
 escp2-c42ux             EPSON Stylus C42UX
+escp2-c43sx             EPSON Stylus C43SX
+escp2-c43ux             EPSON Stylus C43UX
+escp2-c44sx             EPSON Stylus C44SX
+escp2-c44ux             EPSON Stylus C44UX
+escp2-c50               EPSON Stylus C50
 escp2-c60               EPSON Stylus C60
 escp2-c61               EPSON Stylus C61
 escp2-c62               EPSON Stylus C62
 escp2-c70               EPSON Stylus C70
 escp2-c80               EPSON Stylus C80
 escp2-c82               EPSON Stylus C82
+escp2-c83               EPSON Stylus C83
+escp2-c84               EPSON Stylus C84
 escp2                   EPSON Stylus Color
 escp2-pro               EPSON Stylus Color Pro
 escp2-pro-xl            EPSON Stylus Color Pro XL
@@ -512,6 +520,7 @@ escp2-870               EPSON Stylus Photo 870
 escp2-875               EPSON Stylus Photo 875
 escp2-890               EPSON Stylus Photo 890
 escp2-895               EPSON Stylus Photo 895
+escp2-ph900             EPSON Stylus Photo 900
 escp2-915               EPSON Stylus Photo 915
 escp2-925               EPSON Stylus Photo 925
 escp2-950               EPSON Stylus Photo 950
@@ -570,6 +579,7 @@ escp2-pm850pt           EPSON PM-850PT
 escp2-pm880c            EPSON PM-880C
 escp2-pm9000c           EPSON PM-9000C
 escp2-pm950c            EPSON PM-950C
+escp2-pm970c            EPSON PM-970C
 escp2-px7000            EPSON PX-7000
 escp2-px9000            EPSON PX-9000
 pcl-desnj-230           HP DesignJet 230
@@ -663,7 +673,7 @@ perform more passes, printing fewer dots with each pass over the same
 line and using different nozzles for each pass.  This reduces banding
 effects, but requires more time.
 
-"Microweave" modes use algorithms within the printer to generate the
+"Interleave" modes use algorithms within the printer to generate the
 sequence of rows printed.  These algorithms generally only work well
 at low printing resolutions.  Many printers do not support this kind
 of printing at resolutions of 720 DPI and above, and some printers
@@ -744,8 +754,8 @@ see the notes at the end of this section.
 
 360dpi           360 DPI                                  (6)
 360uni           360 DPI Unidirectional                   (6)
-360mw            360 DPI Microweave                       (6, *)
-360mwuni         360 DPI Microweave Unidirectional        (6)
+360mw            360 DPI Interleave                       (6, *)
+360mwuni         360 DPI Interleave Unidirectional        (6)
 360sw            360 DPI                                  (7, 17, *)
 360swuni         360 DPI Unidirectional                   (7, 17)
 360hq            360 DPI High Quality                     (7, 8, 17)
@@ -754,16 +764,16 @@ see the notes at the end of this section.
 720x360sw        720 x 360 DPI                            (9, 10)
 720x360swuni     720 x 360 DPI Unidirectional             (9, 10)
 
-720mw            720 DPI Microweave                       (11)
-720mwuni         720 DPI Microweave Unidirectional        (11)
+720mw            720 DPI Interleave                       (11)
+720mwuni         720 DPI Interleave Unidirectional        (11)
 720sw            720 DPI                                  (9)
 720swuni         720 DPI Unidirectional                   (9)
 720hq            720 DPI High Quality                     (9)
 720hquni         720 DPI High Quality Unidirectional      (9)
 720hq2           720 DPI Highest Quality                  (9)
 
-1440x720mw       1440 x 720 DPI Microweave                (12)
-1440x720mwuni    1440 x 720 DPI Microweave Unidirectional (12)
+1440x720mw       1440 x 720 DPI Interleave                (12)
+1440x720mwuni    1440 x 720 DPI Interleave Unidirectional (12)
 1440x720sw       1440 x 720 DPI                           (13)
 1440x720swuni    1440 x 720 DPI Unidirectional            (13, 14)
 1440x720hq       1440 x 720 DPI Highest Quality           (13)
@@ -861,7 +871,7 @@ see the notes at the end of this section.
 
 
 The Stylus Pro printers (Stylus Pro 5000, 5500, 7000, 7500, 7600,
-9000, 9500, 9600, and 10000) support additional microweave modes known
+9000, 9500, 9600, and 10000) support additional interleave modes known
 as Full Overlap (FOL), Four Pass, and FOL2.  The Stylus Pro 5500,
 7500, 7600, 9500, 9600, and 10000 additionally have a mode called MW2.
 These modes can only be used at certain resolutions.  Stylus Pro
@@ -871,8 +881,8 @@ printers support the following resolutions:
 
 360dpi            360 DPI
 360uni            360 DPI Unidirectional
-360mw             360 DPI Microweave
-360mwuni          360 DPI Microweave Unidirectional
+360mw             360 DPI Interleave
+360mwuni          360 DPI Interleave Unidirectional
 360fol            360 DPI Full Overlap
 360foluni         360 DPI Full Overlap Unidirectional
 360fol2           360 DPI FOL2
@@ -891,8 +901,8 @@ printers support the following resolutions:
 
 720dpi            720 DPI
 720uni            720 DPI Unidirectional
-720mw             720 DPI Microweave
-720mwuni          720 DPI Microweave Unidirectional
+720mw             720 DPI Interleave
+720mwuni          720 DPI Interleave Unidirectional
 720fol            720 DPI Full Overlap
 720foluni         720 DPI Full Overlap Unidirectional
 720fourp          720 DPI Four Pass
@@ -900,8 +910,8 @@ printers support the following resolutions:
 
 1440x720dpi       1440 x 720 DPI
 1440x720uni       1440 x 720 DPI Unidirectional
-1440x720mw        1440 x 720 DPI Microweave
-1440x720mwuni     1440 x 720 DPI Microweave Unidirectional
+1440x720mw        1440 x 720 DPI Interleave
+1440x720mwuni     1440 x 720 DPI Interleave Unidirectional
 1440x720fol       1440 x 720 DPI FOL
 1440x720foluni    1440 x 720 DPI FOL Unidirectional
 1440x720fourp     1440 x 720 DPI Four Pass
@@ -912,8 +922,8 @@ following resolutions:
 
 2880x720dpi       2880 x 720 DPI
 2880x720uni       2880 x 720 DPI Unidirectional
-2880x720mw        2880 x 720 DPI Microweave
-2880x720mwuni     2880 x 720 DPI Microweave Unidirectional
+2880x720mw        2880 x 720 DPI Interleave
+2880x720mwuni     2880 x 720 DPI Interleave Unidirectional
 2880x720fol       2880 x 720 DPI FOL
 2880x720foluni    2880 x 720 DPI FOL Unidirectional
 2880x720fourp     2880 x 720 DPI Four Pass
@@ -921,8 +931,8 @@ following resolutions:
 
 1440x1440dpi      1440 x 1440 DPI
 1440x1440uni      1440 x 1440 DPI Unidirectional
-1440x1440mw       1440 x 1440 DPI Microweave
-1440x1440mwuni    1440 x 1440 DPI Microweave Unidirectional
+1440x1440mw       1440 x 1440 DPI Interleave
+1440x1440mwuni    1440 x 1440 DPI Interleave Unidirectional
 1440x1440fol      1440 x 1440 DPI FOL
 1440x1440foluni   1440 x 1440 DPI FOL Unidirectional
 1440x1440fourp    1440 x 1440 DPI Four Pass
@@ -930,8 +940,8 @@ following resolutions:
 
 2880x1440dpi      2880 x 1440 DPI
 2880x1440uni      2880 x 1440 DPI Unidirectional
-2880x1440mw       2880 x 1440 DPI Microweave
-2880x1440mwuni    2880 x 1440 DPI Microweave Unidirectional
+2880x1440mw       2880 x 1440 DPI Interleave
+2880x1440mwuni    2880 x 1440 DPI Interleave Unidirectional
 2880x1440fol      2880 x 1440 DPI FOL
 2880x1440foluni   2880 x 1440 DPI FOL Unidirectional
 2880x1440fourp    2880 x 1440 DPI Four Pass

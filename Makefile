@@ -20,7 +20,6 @@ Extra_Configure_Flags = --sysconfdir=/private/etc		\
 
 #						--with-foomatic					
 
-Extra_Install_Flags   = sysconfdir="$(DSTROOT)$(ETCDIR)"
 Extra_CC_Flags        = -fno-common -I ../../intl
 GnuAfterInstall       = do-fixups
 
@@ -31,7 +30,7 @@ Install_Target = install
 
 do-fixups:
 	strip -S	"$(DSTROOT)/usr/bin/escputil" \
-			"$(DSTROOT)/usr/lib/libgimpprint.1.1.0.dylib" \
+			"$(DSTROOT)/usr/lib/libgimpprint.1.1.1.dylib" \
 			"$(DSTROOT)/usr/bin/cups-calibrate" \
 			"$(DSTROOT)/usr/libexec/cups/backend/canon" \
 			"$(DSTROOT)/usr/libexec/cups/backend/epson" \

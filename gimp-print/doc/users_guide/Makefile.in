@@ -96,11 +96,11 @@ FOOMATIC_CONFIGURE = @FOOMATIC_CONFIGURE@
 FOOMATIC_INSTALL = @FOOMATIC_INSTALL@
 FOOMATIC_KITLOAD = @FOOMATIC_KITLOAD@
 FOOMATIC_NOINST_BIN = @FOOMATIC_NOINST_BIN@
+FOOMATIC_OLDIDS_NOINST_BIN = @FOOMATIC_OLDIDS_NOINST_BIN@
 FOOMATIC_PPDFILE = @FOOMATIC_PPDFILE@
 GENCAT = @GENCAT@
 GIMPPRINT_BINARY_AGE = @GIMPPRINT_BINARY_AGE@
 GIMPPRINT_CFLAGS = @GIMPPRINT_CFLAGS@
-GIMPPRINT_CONFIG = @GIMPPRINT_CONFIG@
 GIMPPRINT_CURRENT_INTERFACE = @GIMPPRINT_CURRENT_INTERFACE@
 GIMPPRINT_DEPLIBS = @GIMPPRINT_DEPLIBS@
 GIMPPRINT_INTERFACE_AGE = @GIMPPRINT_INTERFACE_AGE@
@@ -118,17 +118,10 @@ GIMP_DATA_DIR = @GIMP_DATA_DIR@
 GIMP_LIBS = @GIMP_LIBS@
 GIMP_LIBS_NOUI = @GIMP_LIBS_NOUI@
 GIMP_PLUGIN_DIR = @GIMP_PLUGIN_DIR@
-GIMP_PRINT_H = @GIMP_PRINT_H@
 GLIBC21 = @GLIBC21@
-GLIB_CFLAGS = @GLIB_CFLAGS@
-GLIB_CONFIG = @GLIB_CONFIG@
-GLIB_LIBS = @GLIB_LIBS@
 GMOFILES = @GMOFILES@
 GMSGFMT = @GMSGFMT@
 GNUCFLAGS = @GNUCFLAGS@
-GTK_CFLAGS = @GTK_CFLAGS@
-GTK_CONFIG = @GTK_CONFIG@
-GTK_LIBS = @GTK_LIBS@
 IJS_BIN = @IJS_BIN@
 IJS_CFLAGS = @IJS_CFLAGS@
 IJS_CONFIG = @IJS_CONFIG@
@@ -143,6 +136,7 @@ INTL_LIBTOOL_SUFFIX_PREFIX = @INTL_LIBTOOL_SUFFIX_PREFIX@
 LEX = @LEX@
 LIBGIMPPRINT_LIBS = @LIBGIMPPRINT_LIBS@
 LIBICONV = @LIBICONV@
+LIBM = @LIBM@
 LIBREADLINE_DEPS = @LIBREADLINE_DEPS@
 LIBTOOL = @LIBTOOL@
 LIBTOOL_DEPS = @LIBTOOL_DEPS@
@@ -432,26 +426,24 @@ install-data-local: $(STANDARD_TARGETS)
 	    $(INSTALL_DATA) $(srcdir)/$(MANUAL).pdf $(DESTDIR)$(datadir)/$(PACKAGE)/doc ; \
 	  fi ; \
 	  if test -d $(HTMLDIR) ; then \
-	    cd $(HTMLDIR) ; \
+	    HTMLGENDIR="$(HTMLDIR)" ; \
 	  elif test -d $(srcdir)/$(HTMLDIR) ; then \
-	    cd $(srcdir)/$(HTMLDIR) ; \
+	    HTMLGENDIR="$(srcdir)/$(HTMLDIR)" ; \
 	  else \
 	    exit 1 ; \
 	  fi ; \
-	  for file in *.html *.css ; do \
+	  for file in $$HTMLGENDIR/*.html $$HTMLGENDIR/*.css ; do \
 	    if test -f $$file ; then \
 	      $(INSTALL_DATA) $$file $(DESTDIR)$(datadir)/$(PACKAGE)/doc/html ; \
 	    fi ; \
 	  done ; \
-	  cd figures ; \
-	  for file in *.png ; do \
+	  for file in $$HTMLGENDIR/figures/*.png ; do \
 	    if test -f $$file ; then \
 	      $(INSTALL_DATA) $$file $(DESTDIR)$(datadir)/$(PACKAGE)/doc/html/figures ; \
 	    fi ; \
 	  done ; \
-	  if test -d ../stylesheet-images ; then \
-	    cd ../stylesheet-images ; \
-	    for file in * ; do \
+	  if test -d $$HTMLGENDIR/stylesheet-images ; then \
+	    for file in $$HTMLGENDIR/stylesheet-images/* ; do \
 	      if test -f $$file ; then \
 	        $(INSTALL_DATA) $$file $(DESTDIR)$(datadir)/$(PACKAGE)/doc/html/stylesheet-images ; \
 	      fi ; \

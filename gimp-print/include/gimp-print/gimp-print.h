@@ -1,5 +1,5 @@
 /*
- *  $Id: gimp-print.h,v 1.1.1.1 2003/01/27 19:05:31 jlovell Exp $
+ *  $Id: gimp-print.h,v 1.1.1.2 2004/05/03 21:30:23 jlovell Exp $
  *
  *   Print plug-in header file for the GIMP.
  *
@@ -52,10 +52,10 @@ extern "C" {
  */
 #define GIMPPRINT_MAJOR_VERSION       (4)
 #define GIMPPRINT_MINOR_VERSION       (2)
-#define GIMPPRINT_MICRO_VERSION       (5)
+#define GIMPPRINT_MICRO_VERSION       (6)
 #define GIMPPRINT_CURRENT_INTERFACE   (2)
 #define GIMPPRINT_BINARY_AGE          (1)
-#define GIMPPRINT_INTERFACE_AGE       (0)
+#define GIMPPRINT_INTERFACE_AGE       (1)
 #define GIMPPRINT_CHECK_VERSION(major,minor,micro) \
   (GIMPPRINT_MAJOR_VERSION >  (major) || \
   (GIMPPRINT_MAJOR_VERSION == (major) && GIMPPRINT_MINOR_VERSION > (minor)) || \
@@ -594,5 +594,5 @@ extern const stp_vars_t stp_minimum_settings (void);
 
 #endif /* __GIMP_PRINT_H__ */
 /*
- * End of $Id: gimp-print.h,v 1.1.1.1 2003/01/27 19:05:31 jlovell Exp $
+ * End of $Id: gimp-print.h,v 1.1.1.2 2004/05/03 21:30:23 jlovell Exp $
  */

@@ -1,3 +1,766 @@
+2004-01-11	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.98) (+1 -1)
+
+	Update release date for 4.2.6.
+
+2003-12-24	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.97) (+1 -1)
+
+	Fix the projected release date for 4.2.6.
+
+2003-12-24	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.96) (+1 -2)
+
+	Correct the comment.
+
+2003-12-24	<rlk@sourceforge.net>
+
+	Files:	src/cups/Makefile.am (1.45.2.12) (+5 -4)
+
+	rastertoprinter also needs to be linked statically.
+
+2003-12-24	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.95) (+69 -0)
+		configure.in.in (1.103.2.66) (+11 -2)
+		src/cups/Makefile.am (1.45.2.11) (+6 -2)
+
+	865253 genppd may not generate new PPD files (4.2)
+
+2003-12-19	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.94) (+75 -4)
+
+	Update list of PCL printers.
+
+2003-12-18	<rlk@sourceforge.net>
+
+	Files:	configure.in.in (1.103.2.65) (+3 -3)
+
+	Update for 4.2.6
+
+2003-12-18	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.93) (+116 -126)
+		README (1.91.2.49) (+17 -17)
+		debian/README.Debian (1.22.2.30) (+7 -6)
+
+	Prep for 4.2.6
+
+2003-12-17	<rlk@sourceforge.net>
+
+	Files:	src/cups/genppd.c (1.36.2.14) (+4 -18)
+
+	Generate the *PCFileName as STPnnnnn.PPD, per latest proposal accepted
+	by the group.
+
+2003-12-13	<rleigh@sourceforge.net>
+
+	Files:	man/gimpprint-resolutions.7.in (1.1.6.5) (+1 -2)
+
+	Small markup fix reported by Eric Raymond.
+
+2003-12-07	<rleigh@sourceforge.net>
+
+	Files:	po/en_GB.po (1.80.2.46) (+22 -126)
+
+	Update British English translation for 4.2.6-rc2.
+
+2003-12-07	<rlk@sourceforge.net>
+
+	Files:	debian/README.building (1.3.4.3) (+5 -4)
+		src/foomatic/foomatic-generator.in (1.14.4.15) (+2 -2)
+
+	Build instruction update.
+
+2003-12-07	<rlk@sourceforge.net>
+
+	Files:	doc/users_guide/Makefile.am (1.28.2.4) (+7 -9)
+
+	789622	Install Failure Solaris 8
+
+2003-12-06	<rlk@sourceforge.net>
+
+	Files:	po/ja.po (1.1.2.21) (+31 -26)
+		po/nl.po (1.1.2.35) (+31 -26)
+		po/no.po (1.21.2.42) (+31 -26)
+		po/pl.po (1.5.2.40) (+31 -26)
+		po/pt.po (1.1.2.30) (+31 -26)
+		po/sk.po (1.1.2.43) (+31 -26)
+		po/sv.po (1.30.2.46) (+32 -27)
+
+	Gimp-Print 4.2.6-rc2
+
+2003-12-06	<rlk@sourceforge.net>
+
+	Files:	po/cs.po (1.1.2.7) (+31 -26)
+		po/da.po (1.14.2.41) (+31 -26)
+		po/de.po (1.1.2.32) (+31 -26)
+		po/el.po (1.1.2.38) (+31 -26)
+		po/en_GB.po (1.80.2.45) (+32 -27)
+		po/es.po (1.1.2.30) (+31 -26)
+		po/fr.po (1.21.2.41) (+31 -26)
+
+	Gimp-Print 4.2.6-rc2
+
+2003-12-06	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.92) (+1 -1)
+
+	Prep for 4.2.6-rc2.
+
+2003-12-06	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.91) (+26 -2)
+		README (1.91.2.48) (+9 -9)
+		configure.in.in (1.103.2.64) (+2 -2)
+		debian/README.Debian (1.22.2.29) (+1 -1)
+
+	Prep for Gimp-Print 4.2.6-rc2
+
+2003-12-02	<rlk@sourceforge.net>
+
+	Files:	src/main/print-escp2.c (1.147.2.24) (+16 -16)
+		src/main/print-escp2.h (1.7.4.9) (+5 -5)
+		src/main/print-weave.c (1.36.4.3) (+2 -3)
+		test/unprint.c (1.22.4.2) (+9 -9)
+
+	Change "microweave" to "interleave"
+
+2003-12-02	<rlk@sourceforge.net>
+
+	Files:	doc/new-printer.texi (1.5.2.1) (+32 -21)
+		doc/users_guide/gimp.sgml (1.1.2.2) (+6 -6)
+		man/gimpprint-resolutions.7.in (1.1.6.4) (+21 -21)
+		po/cs.po (1.1.2.6) (+28 -28)
+		po/da.po (1.14.2.40) (+28 -28)
+		po/de.po (1.1.2.31) (+28 -28)
+		po/el.po (1.1.2.37) (+14 -14)
+		po/en_GB.po (1.80.2.44) (+29 -29)
+		po/es.po (1.1.2.29) (+28 -28)
+		po/fr.po (1.21.2.40) (+28 -28)
+		po/ja.po (1.1.2.20) (+28 -28)
+		po/nl.po (1.1.2.34) (+14 -14)
+		po/no.po (1.21.2.41) (+14 -14)
+		po/pl.po (1.5.2.39) (+14 -14)
+		po/pt.po (1.1.2.29) (+14 -14)
+		po/sk.po (1.1.2.42) (+28 -28)
+		po/sv.po (1.30.2.45) (+15 -15)
+		src/ghost/README (1.55.2.32) (+20 -20)
+		src/main/print-escp2-data.c (1.15.4.41) (+23 -23)
+
+	Change "microweave" to "interleave"
+
+2003-12-02	<rlk@sourceforge.net>
+
+	Files:	src/cups/rastertoprinter.c (1.19.4.11) (+8 -5)
+
+	Don't set media source, media type, and ink type if the supplied
+	values are empty.
+
+2003-12-02	<rlk@sourceforge.net>
+
+	Files:	configure.in.in (1.103.2.63) (+2 -2)
+
+	Fix a problem with VPATH builds introduced in 4.2.6-rc1 (from Roger
+	Leigh).
+
+2003-11-28	<rlk@sourceforge.net>
+
+	Files:	src/main/printers.xml (1.42.2.23) (+3 -3)
+
+	The CX-6300 and 6400 appear to be based on the C84, not the C64.
+
+2003-11-22	<rlk@sourceforge.net>
+
+	Files:	src/main/print-util.c (1.53.2.20) (+3 -1)
+
+	Add European 10x15 cm
+
+2003-11-15	<rlk@sourceforge.net>
+
+	Files:	po/cs.po (1.1.2.5) (+1 -1)
+		po/da.po (1.14.2.39) (+1 -1)
+		po/de.po (1.1.2.30) (+1 -1)
+		po/el.po (1.1.2.36) (+1 -1)
+		po/en_GB.po (1.80.2.43) (+2 -2)
+		po/es.po (1.1.2.28) (+1 -1)
+		po/fr.po (1.21.2.39) (+1 -1)
+		po/ja.po (1.1.2.19) (+1 -1)
+		po/nl.po (1.1.2.33) (+1 -1)
+		po/no.po (1.21.2.40) (+1 -1)
+		po/pl.po (1.5.2.38) (+1 -1)
+		po/pt.po (1.1.2.28) (+1 -1)
+		po/sk.po (1.1.2.41) (+1 -1)
+		po/sv.po (1.30.2.44) (+2 -2)
+
+	Gimp-Print 4.2.6-rc1 release
+
+2003-11-15	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.90) (+20 -2)
+		README (1.91.2.47) (+17 -17)
+		configure.in.in (1.103.2.62) (+2 -2)
+		debian/README.Debian (1.22.2.28) (+6 -6)
+
+	Prep for 4.2.6-rc1
+
+2003-11-14	<rlk@sourceforge.net>
+
+	Files:	src/main/print-escp2-data.c (1.15.4.40) (+5 -5)
+
+	Don't try to use extra nozzles on older printers.
+
+2003-11-02	<rlk@sourceforge.net>
+
+	Files:	po/en_GB.po (1.80.2.42) (+2 -2)
+		po/es.po (1.1.2.27) (+1 -1)
+		po/fr.po (1.21.2.38) (+1 -1)
+		po/ja.po (1.1.2.18) (+1 -1)
+		po/nl.po (1.1.2.32) (+1 -1)
+		po/no.po (1.21.2.39) (+1 -1)
+		po/pl.po (1.5.2.37) (+1 -1)
+		po/pt.po (1.1.2.27) (+1 -1)
+		po/sk.po (1.1.2.40) (+1 -1)
+		po/sv.po (1.30.2.43) (+2 -2)
+
+	Gimp-Print 4.2.6-pre3 release
+
+2003-11-02	<rlk@sourceforge.net>
+
+	Files:	po/cs.po (1.1.2.4) (+1 -1)
+		po/da.po (1.14.2.38) (+1 -1)
+		po/de.po (1.1.2.29) (+1 -1)
+		po/el.po (1.1.2.35) (+1 -1)
+
+	Gimp-Print 4.2.6-pre3 release
+
+2003-11-01	<rlk@sourceforge.net>
+
+	Files:	po/el.po (1.1.2.34) (+401 -333)
+		po/en_GB.po (1.80.2.41) (+402 -334)
+		po/es.po (1.1.2.26) (+401 -333)
+		po/fr.po (1.21.2.37) (+401 -333)
+		po/ja.po (1.1.2.17) (+401 -333)
+		po/nl.po (1.1.2.31) (+401 -333)
+		po/no.po (1.21.2.38) (+401 -333)
+		po/pl.po (1.5.2.36) (+401 -333)
+		po/pt.po (1.1.2.26) (+401 -333)
+		po/sk.po (1.1.2.39) (+401 -333)
+		po/sv.po (1.30.2.42) (+402 -334)
+		src/escputil/escputil.c (1.39.2.16) (+5 -1)
+		src/foomatic/foomatic-printermap (1.23.2.35) (+4 -0)
+		src/ghost/README (1.55.2.31) (+4 -0)
+		src/main/print-escp2-data.c (1.15.4.39) (+2 -2)
+		src/main/printers.xml (1.42.2.22) (+41 -1)
+
+	Add Stylus C44/C43 and prep for 4.2.6-pre3
+
+2003-11-01	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.89) (+28 -3)
+		po/cs.po (1.1.2.3) (+401 -333)
+		po/da.po (1.14.2.37) (+401 -333)
+		po/de.po (1.1.2.28) (+401 -333)
+
+	Add Stylus C44/C43 and prep for 4.2.6-pre3
+
+2003-11-01	<rlk@sourceforge.net>
+
+	Files:	configure.in.in (1.103.2.61) (+2 -2)
+
+	Bump version.
+
+2003-10-19	<rlk@sourceforge.net>
+
+	Files:	src/main/print-canon.c (1.71.2.9) (+14 -2)
+
+	Fix 668342 per Peter Missel (he's having CVS troubles)
+
+2003-10-16	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.88) (+18 -0)
+		src/escputil/escputil.c (1.39.2.15) (+9 -1)
+		src/foomatic/foomatic-printermap (1.23.2.34) (+6 -0)
+		src/main/printers.xml (1.42.2.21) (+64 -1)
+
+	Add Epson Stylus CX-3100, CX-5100, CX-6300, CX-6400, CX-8300, CX-8400.
+
+2003-10-16	<rlk@sourceforge.net>
+
+	Files:	src/main/print-escp2.c (1.147.2.23) (+3 -3)
+		src/main/print-lexmark.c (1.65.2.9) (+3 -3)
+		src/main/print-pcl.c (1.47.4.12) (+3 -3)
+
+	Allocate zero-filled memory for the input and output buffers.
+
+2003-10-01	<rleigh@sourceforge.net>
+
+	Files:	src/printdef/printdefy.y (1.7.4.1) (+7 -2)
+
+	Correct the yyerror() prototype and add some missing ';'s that bison warned about.
+
+2003-09-22	<tylerb@sourceforge.net>
+
+	Files:	src/cups/genppd.c (1.36.2.13) (+86 -3)
+
+	added Mac OS X-specific group ordering
+
+2003-09-22	<tylerb@sourceforge.net>
+
+	Files:	NEWS (1.68.2.87) (+15 -0)
+
+	new PPD directory on Mac OS X when using the installer package
+
+2003-09-21	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.86) (+10 -0)
+		src/escputil/escputil.c (1.39.2.14) (+3 -1)
+		src/foomatic/foomatic-printermap (1.23.2.33) (+3 -0)
+		src/main/print-escp2-data.c (1.15.4.38) (+95 -4)
+		src/main/printers.xml (1.42.2.20) (+34 -1)
+
+	Preliminary support for Epson Stylus C63/C64 and PX-V500
+
+2003-09-16	<rlk@sourceforge.net>
+
+	Files:	po/cs.po (1.1.2.2) (+607 -529)
+		po/da.po (1.14.2.36) (+504 -489)
+		po/de.po (1.1.2.27) (+631 -540)
+		po/el.po (1.1.2.33) (+503 -487)
+		po/en_GB.po (1.80.2.40) (+504 -492)
+		po/es.po (1.1.2.25) (+504 -489)
+		po/fr.po (1.21.2.36) (+504 -489)
+		po/ja.po (1.1.2.16) (+504 -489)
+		po/nl.po (1.1.2.30) (+504 -489)
+		po/no.po (1.21.2.37) (+504 -489)
+		po/pl.po (1.5.2.35) (+504 -489)
+		po/pt.po (1.1.2.25) (+504 -489)
+		po/sk.po (1.1.2.38) (+504 -489)
+		po/sv.po (1.30.2.41) (+613 -532)
+
+	Gimp-Print 4.2.6-pre2 release
+
+2003-09-16	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.85) (+23 -8)
+
+	Prep for 4.2.6-pre2
+
+2003-09-16	<rlk@sourceforge.net>
+
+	Files:	src/cups/rastertoprinter.c (1.19.4.10) (+11 -11)
+
+	806902 CUPS quality degrades on multi-page jobs (4.2.6-pre1 only)
+
+2003-09-11	<rlk@sourceforge.net>
+
+	Files:	configure.in.in (1.103.2.60) (+2 -2)
+
+	Bumped the version too far in error
+
+2003-09-11	<rlk@sourceforge.net>
+
+	Files:	src/main/print-canon.c (1.71.2.8) (+126 -286)
+
+	Apply the correct patch.
+
+2003-09-11	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.84) (+7 -5)
+		src/escputil/escputil.c (1.39.2.13) (+3 -1)
+		src/foomatic/foomatic-printermap (1.23.2.32) (+1 -0)
+		src/ghost/README (1.55.2.30) (+3 -0)
+		src/main/print-canon.c (1.71.2.7) (+444 -148)
+		src/main/print-escp2-data.c (1.15.4.37) (+20 -20)
+		src/main/printers.xml (1.42.2.19) (+8 -1)
+
+	Add Epson C83 and C84, Canon S200.
+
+	Patch for Canon S200 courtesy Karsten Festag <karsten.festag at gmx.de>
+
+2003-09-11	<rlk@sourceforge.net>
+
+	Files:	configure.in.in (1.103.2.59) (+2 -2)
+
+	Bump version
+
+2003-09-11	<rlk@sourceforge.net>
+
+	Files:	po/de.po (1.1.2.26) (+425 -524)
+
+	Updated translation
+
+2003-09-11	<rlk@sourceforge.net>
+
+	Files:	src/foomatic/foomatic-printermap (1.23.2.31) (+2 -0)
+		src/main/print-escp2-data.c (1.15.4.36) (+194 -6)
+		src/main/printers.xml (1.42.2.18) (+23 -1)
+
+	Add Epson Stylus C83 and C84
+
+2003-08-25	<rleigh@sourceforge.net>
+
+	Files:	src/main/print-color.c (1.26.2.3) (+2 -1)
+
+	Add memset prototype (string.h).
+
+2003-08-24	<rleigh@sourceforge.net>
+
+	Files:	man/ijsgimpprint.1.in (1.1.2.5) (+11 -9)
+
+	Fold examples to display correctly on 80 col terminals and printers.
+
+2003-08-22	<rleigh@sourceforge.net>
+
+	Files:	man/cups-calibrate.8.in (1.2.8.2) (+5 -5)
+		man/escputil.1.in (1.4.4.5) (+11 -11)
+		man/gimpprint-color.7.in (1.1.6.2) (+11 -11)
+		man/gimpprint-config.1.in (1.2.8.2) (+15 -15)
+		man/gimpprint-dithers.7.in (1.1.6.2) (+11 -11)
+		man/gimpprint-imagetypes.7.in (1.2.4.2) (+11 -11)
+		man/gimpprint-inktypes.7.in (1.1.6.2) (+11 -11)
+		man/gimpprint-mediasizes.7.in (1.1.6.3) (+13 -13)
+		man/gimpprint-mediasources.7.in (1.1.6.2) (+11 -11)
+		man/gimpprint-mediatypes.7.in (1.1.6.2) (+11 -11)
+		man/gimpprint-models.7.in (1.1.6.4) (+203 -203)
+		man/gimpprint-resolutions.7.in (1.1.6.3) (+11 -11)
+		man/gimpprint.3.in (1.1.10.3) (+13 -13)
+		man/ijsgimpprint.1.in (1.1.2.4) (+38 -38)
+
+	Update all manual pages to correctly distinguish between hyphens and
+	en-dashes/minus signs.  This is required to allow copy/paste in a
+	unicode locale, where hyphens are not represented as a '-'.
+
+2003-07-31	<rlk@sourceforge.net>
+
+	Files:	AUTHORS (1.10.4.5) (+1 -1)
+
+	Update Roger's email address
+
+2003-07-12	<rleigh@sourceforge.net>
+
+	Files:	Makefile.am (1.120.2.3) (+4 -38)
+		configure.in.in (1.103.2.58) (+22 -89)
+		include/gimp-print/Makefile.am (1.2.6.1) (+2 -2)
+		po/POTFILES.in (1.10.4.3) (+0 -4)
+		src/cups/Makefile.am (1.45.2.10) (+2 -2)
+		src/main/Makefile.am (1.27.4.2) (+4 -11)
+
+	Don't link with libm on OSX.
+	Remove libm from _DEPENDENCIES, fixing dependency breakage.
+	Fix Foomatic breakage: libgimpprint should /not/ be installed in /usr/share/foomatic.
+	Remove unused GIMP source tree integration support.
+
+2003-07-08	<rleigh@sourceforge.net>
+
+	Files:	src/escputil/escputil.c (1.39.2.12) (+27 -26)
+
+	Use non-blocking I/O with a 10 sec timeout, to prevent hanging when
+	reading from non-responsive printers.
+
+2003-06-17	<davehill@sourceforge.net>
+
+	Files:	src/main/print-pcl.c (1.47.4.11) (+9 -9)
+
+	Revert previous fix pending further investigation.
+
+2003-06-17	<davehill@sourceforge.net>
+
+	Files:	src/main/print-pcl.c (1.47.4.10) (+9 -9)
+
+	The "different A4 margins" does not apply to LaserJets. (Bruce Webster)
+
+2003-05-12	<davehill@sourceforge.net>
+
+	Files:	src/foomatic/foomatic-printermap (1.23.2.30) (+1 -1)
+
+	Over-zealously changed HP LJII to a IIP!
+
+2003-05-11	<rlk@sourceforge.net>
+
+	Files:	src/cups/genppd.c (1.36.2.12) (+14 -17)
+
+	Back out changes to DefaultOutputOrder until we figure out how to
+	determine it correctly.
+
+2003-05-10	<davehill@sourceforge.net>
+
+	Files:	src/main/print-pcl.c (1.47.4.9) (+13 -7)
+
+	Don't add nonexistent channels. Doesn't actually matter for 4.2, but
+	is tidier.
+
+2003-05-09	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.83) (+24 -1)
+
+	Update
+
+2003-05-09	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.82) (+24 -9)
+		src/foomatic/foomatic-printermap (1.23.2.29) (+291 -289)
+
+	Update the printer map
+
+2003-05-09	<rlk@sourceforge.net>
+
+	Files:	src/cups/genppd.c (1.36.2.11) (+13 -2)
+
+	735493 CUPS PPD files lacking *OutputOrder
+
+2003-05-07	<tillkamppeter@sourceforge.net>
+
+	Files:	src/foomatic/foomatic-printermap (1.23.2.28) (+15 -4)
+
+	Added new laser printer models.
+
+2003-05-04	<rlk@sourceforge.net>
+
+	Files:	configure.in.in (1.103.2.57) (+2 -2)
+		po/cs.po (1.1) ( )
+		po/cs.po (1.1.2.1) (+3348 -0)
+
+	Add Czech translation
+
+2003-04-30	<rlk@sourceforge.net>
+
+	Files:	src/main/print-ps.c (1.26.2.5) (+8 -1)
+
+	729918 Postscript family driver fails in non-US locale
+
+2003-04-25	<rleigh@sourceforge.net>
+
+	Files:	debian/changelog (1.35.2.15) (+13 -0)
+		debian/control.in (1.16.2.16) (+2 -2)
+
+	Update Debian packaging for 4.2.6
+
+2003-04-20	<rlk@sourceforge.net>
+
+	Files:	src/main/print-util.c (1.53.2.19) (+3 -1)
+
+	Add Engineering C paper size
+
+2003-04-19	<rlk@sourceforge.net>
+
+	Files:	po/sv.po (1.30.2.40) (+52 -120)
+
+	Updated Swedish translation
+
+2003-04-18	<rlk@sourceforge.net>
+
+	Files:	configure.in.in (1.103.2.56) (+2 -2)
+
+	Bump version
+
+2003-04-18	<rlk@sourceforge.net>
+
+	Files:	po/el.po (1.1.2.32) (+293 -276)
+		po/en_GB.po (1.80.2.39) (+293 -277)
+		po/es.po (1.1.2.24) (+292 -276)
+		po/fr.po (1.21.2.35) (+292 -276)
+		po/ja.po (1.1.2.15) (+292 -276)
+		po/nl.po (1.1.2.29) (+292 -276)
+		po/no.po (1.21.2.36) (+292 -276)
+		po/pl.po (1.5.2.34) (+292 -276)
+		po/pt.po (1.1.2.24) (+292 -276)
+		po/sk.po (1.1.2.37) (+292 -276)
+		po/sv.po (1.30.2.39) (+293 -277)
+
+	Gimp-Print 4.2.6-pre1 release
+
+2003-04-18	<rlk@sourceforge.net>
+
+	Files:	po/da.po (1.14.2.35) (+292 -276)
+		po/de.po (1.1.2.25) (+292 -276)
+
+	Gimp-Print 4.2.6-pre1 release
+
+2003-04-18	<tillkamppeter@sourceforge.net>
+
+	Files:	NEWS (1.68.2.81) (+1 -1)
+
+	Fixed typo.
+
+2003-04-18	<rlk@sourceforge.net>
+
+	Files:	src/foomatic/Makefile.am (1.16.2.15) (+2 -1)
+
+	Distribute old printer ID map.
+
+2003-04-18	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.80) (+30 -2)
+		README (1.91.2.46) (+10 -10)
+		configure.in.in (1.103.2.55) (+3 -3)
+		debian/README.Debian (1.22.2.27) (+1 -1)
+
+	Prep for Gimp-Print 4.2.6-pre1
+
+2003-04-18	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.79) (+10 -0)
+		src/foomatic/foomatic-printermap (1.23.2.27) (+5 -0)
+		src/main/print-escp2-data.c (1.15.4.35) (+16 -1)
+		src/main/printers.xml (1.42.2.17) (+43 -1)
+
+	Preliminary support for Japanese Epson CL-760, PM-750C, PM-870C,
+	PM-930C, and PM-3700C.
+
+2003-04-11	<davehill@sourceforge.net>
+
+	Files:	src/main/print-pcl.c (1.47.4.8) (+3 -3)
+
+	Tweaked the DeskJet 340 margins slightly according to the User Manual
+
+2003-04-06	<rlk@sourceforge.net>
+
+	Files:	src/main/print-escp2-data.c (1.15.4.34) (+46 -5)
+
+	Update PM-970C data based on testing.
+
+2003-04-01	<tillkamppeter@sourceforge.net>
+
+	Files:	src/foomatic/foomatic-generator.in (1.14.4.14) (+0 -1)
+
+	Removed a forgotten surgery tool out of the patient ...
+
+2003-04-01	<tillkamppeter@sourceforge.net>
+
+	Files:	configure.in.in (1.103.2.54) (+42 -1)
+		src/foomatic/Makefile.am (1.16.2.14) (+8 -2)
+		src/foomatic/foomatic-generator.in (1.14.4.13) (+30 -3)
+		src/foomatic/foomatic-printermap (1.23.2.26) (+288 -288)
+		src/foomatic/oldprinterids (1.1) ( )
+		src/foomatic/oldprinterids (1.1.2.1) (+640 -0)
+
+	Added support for the new clear-text printer IDs of Foomatic 3.0. Legacy support for the old numerical IDs is included.
+
+2003-03-31	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.78) (+10 -5)
+		src/cups/genppd.c (1.36.2.10) (+3 -2)
+		src/foomatic/foomatic-printermap (1.23.2.25) (+2 -0)
+		src/ghost/README (1.55.2.29) (+2 -0)
+		src/main/print-escp2-data.c (1.15.4.33) (+3 -3)
+		src/main/print-escp2-data.c (1.15.4.32) (+16 -1)
+		src/main/printers.xml (1.42.2.16) (+17 -1)
+
+	Add support for Epson PM-970C (to 2880x1440) and Stylus Photo 900
+
+2003-02-19	<davehill@sourceforge.net>
+
+	Files:	src/main/printers.xml (1.42.2.15) (+9 -1)
+
+	The LaserJet IIP series can do TIFF compression so added
+	them separately. I don't know if the LaserJet II (and all
+	the others that use the pcl-2 driver) can do this, hence
+	separating out the IIP.
+
+2003-02-19	<davehill@sourceforge.net>
+
+	Files:	src/foomatic/foomatic-printermap (1.23.2.24) (+3 -3)
+		src/main/print-pcl.c (1.47.4.7) (+35 -1)
+
+	The LaserJet IIP series can do TIFF compression so added
+	them separately. I don't know if the LaserJet II (and all
+	the others that use the pcl-2 driver) can do this, hence
+	separating out the IIP.
+
+2003-02-06	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.77) (+1 -0)
+
+	List the c50 in the activation sequence list
+
+2003-02-05	<easysw@sourceforge.net>
+
+	Files:	src/cups/genppd.c (1.36.2.9) (+78 -12)
+		src/cups/rastertoprinter.c (1.19.4.9) (+119 -110)
+
+	Updated genppd so that the generated PPD files are more conformant:
+
+	    - The Product attributes are now (AFPL Ghostscript), (GNU
+	      Ghostscript), and (ESP Ghostscript)
+	    - The PCFileName attribute is now a unique 8.3 conformant
+	      filename (the PPD filenames are unchanged) generated from
+	      the driver name.
+	    - The ModelName attribute is now the driver long name.
+	    - The LanguageLevel attribute now defaults to "3" since all
+	      current Ghostscript releases are fully Level 3 capable
+	      (the previous default of Level 2 was for Ghostscript
+	      5.50.)
+
+	Updated rastertoprinter with the following changes:
+
+	    - Now lookup both the long and short driver names from the
+	      PPD ModelName attribute.
+	    - The STP variables are allocated before the first page,
+	      with all "global" options set once.
+	    - The per-page variables are set at the beginning of each
+	      page. Previously it was impossible to change the page size
+	      or other settings in the middle of a document.
+
+2003-02-01	<tillkamppeter@sourceforge.net>
+
+	Files:	src/foomatic/foomatic-printermap (1.23.2.23) (+1 -1)
+
+	Adapted ID of Xerox DocuPrint N4512PS to the new one on linuxprinting.org.
+
+2003-01-28	<davehill@sourceforge.net>
+
+	Files:	NEWS (1.68.2.76) (+3 -0)
+		src/foomatic/foomatic-printermap (1.23.2.22) (+3 -0)
+		src/main/printers.xml (1.42.2.14) (+25 -1)
+
+	Added Apple Color StyleWriter 4100 (Deskjet 660C), Color StyleWriter 4500
+	(DJ 690C) and Color StyleWriter 6500 (takes same carts as DJ850).
+	Detective work by: Richard V. Ford <rvf@packeteer.com>
+
+2003-01-28	<rlk@sourceforge.net>
+
+	Files:	src/foomatic/foomatic-printermap (1.23.2.21) (+1 -0)
+		src/ghost/README (1.55.2.28) (+1 -0)
+		src/main/print-escp2-data.c (1.15.4.31) (+16 -1)
+		src/main/printers.xml (1.42.2.13) (+11 -1)
+
+	Add Epson Stylus C50.
+
+2003-01-28	<rlk@sourceforge.net>
+
+	Files:	NEWS (1.68.2.75) (+2 -0)
+		src/escputil/escputil.c (1.39.2.11) (+2 -1)
+
+	Add Epson Stylus C50.
+
+2003-01-25	<rlk@sourceforge.net>
+
+	Files:	po/ja.po (1.1.2.14) (+140 -141)
+		po/nl.po (1.1.2.28) (+140 -141)
+		po/no.po (1.21.2.35) (+140 -141)
+		po/pl.po (1.5.2.33) (+140 -141)
+		po/pt.po (1.1.2.23) (+140 -141)
+		po/sk.po (1.1.2.36) (+140 -141)
+		po/sv.po (1.30.2.38) (+141 -142)
+
+	Gimp-Print 4.2.5
+
+2003-01-25	<rlk@sourceforge.net>
+
+	Files:	po/da.po (1.14.2.34) (+140 -141)
+		po/de.po (1.1.2.24) (+140 -141)
+		po/el.po (1.1.2.31) (+138 -140)
+		po/en_GB.po (1.80.2.38) (+143 -141)
+		po/es.po (1.1.2.23) (+140 -141)
+		po/fr.po (1.21.2.34) (+140 -141)
+
+	Gimp-Print 4.2.5
+
 2003-01-25	<rlk@sourceforge.net>
 
 	Files:	NEWS (1.68.2.74) (+7 -3)
@@ -1886,9 +2649,12 @@
 		po/no.po (1.11.2.4) (+756 -883)
 		po/pl.po (1.4.2.3) (+543 -679)
 		po/sv.po (1.20.2.4) (+791 -715)
+		src/cups/Makefile.am (1.17.2.12) (+11 -8)
+		src/cups/genppd.c (1.7.2.9) (+32 -49)
 		src/foomatic/Makefile.am (1.4.2.9) (+32 -10)
 		src/foomatic/foomatic-printermap (1.2.2.8) (+48 -0)
 		src/main/print-escp2.c (1.24.2.11) (+481 -3291)
+		src/main/print-pcl.c (1.8.4.8) (+108 -77)
 
 	Sync debian-branch with 4.2.2-pre1.
 
@@ -2891,6 +3657,16 @@
 
 	Updates
 
+2002-02-17	<sharkey@sourceforge.net>
+
+	Files:	doc/users_guide/Makefile.am (1.24.2.4) (+2 -2)
+
+	Debian's version of the Imagemagick convert program's EPS2 driver is
+	still broken and gimp-print still fails to build because of this.
+	(Debian bug #130756)  Debian is going into freeze so this needs to be
+	fixed ASAP.  Switch to the EPS1 driver instead and prep for
+	immediate release.
+
 2002-02-17	<rlk@sourceforge.net>
 
 	Files:	po/da.po (1.14.2.5) (+1 -1)
@@ -3333,6 +4109,7 @@
 		po/no.po (1.11.2.3) (+1 -1)
 		po/pl.po (1.4.2.2) (+1 -1)
 		po/sv.po (1.20.2.3) (+1 -1)
+		src/cups/Makefile.am (1.17.2.11) (+10 -13)
 		src/foomatic/Makefile.am (1.4.2.8) (+2 -2)
 		src/foomatic/foomatic-printermap (1.2.2.7) (+1 -3)
 		src/main/print-escp2.c (1.24.2.10) (+5 -5)
@@ -3497,6 +4274,7 @@
 		po/no.po (1.11.2.2) (+244 -244)
 		po/pl.po (1.4.2.1) (+1 -1)
 		po/sv.po (1.20.2.2) (+244 -244)
+		src/cups/Makefile.am (1.17.2.10) (+39 -11)
 		src/cups/genppd.c (1.7.2.7) (+34 -10)
 		src/foomatic/Makefile.am (1.4.2.7) (+2 -2)
 		src/foomatic/foomatic-printermap (1.2.2.6) (+1 -0)
@@ -4098,6 +4876,7 @@
 		src/foomatic/foomatic-printermap (1.2.2.5) (+12 -1)
 		src/ghost/.cvsignore (1.3.4.3) (+1 -0)
 		src/main/print-escp2.c (1.24.2.8) (+1694 -1481)
+		src/main/print-pcl.c (1.8.4.7) (+134 -48)
 
 	Sync debian branch with b4.
 
@@ -4282,6 +5061,7 @@
 
 	Files:	doc/new-printer.texi (1.5) (+11 -2)
 
+	branches:  1.5.2;  1.5.8;
 	Updates
 
 2001-10-21	<rlk@sourceforge.net>
@@ -5524,6 +6304,7 @@
 		configure.in.in (1.18.2.7) (+102 -76)
 		debian/README.Debian (1.2.2.7) (+1 -1)
 		man/escputil.1.in (1.2.4.2) (+6 -6)
+		po/POTFILES.in (1.3.4.3) (+0 -7)
 		src/cups/Makefile.am (1.17.2.7) (+22 -4)
 		src/cups/genppd.c (1.7.2.5) (+165 -272)
 		src/foomatic/Makefile.am (1.4.2.5) (+15 -4)
@@ -5656,6 +6437,7 @@
 		include/gimp-print/gimp-print-intl.h (1.2) (+4 -4)
 		include/gimp-print/gimp-print.h.in (1.3) (+5 -5)
 
+	branches:  1.2.2;  1.2.6;
 	Add internal i18n header and fix header #defines
 
 2001-09-08	<rleigh@sourceforge.net>
@@ -7092,6 +7874,7 @@
 		configure.in.in (1.18.2.5) (+6 -5)
 		debian/README.Debian (1.2.2.5) (+7 -6)
 		doc/Makefile.am (1.1.2.3) (+25 -11)
+		doc/new-printer.texi (1.2.2.1) (+0 -0)
 		src/cups/Makefile.am (1.17.2.5) (+2 -8)
 		src/main/print-dither.c (1.10.4.5) (+88 -52)
 		src/main/print-escp2.c (1.24.2.5) (+7 -5)
@@ -7400,7 +8183,9 @@
 
 	Files:	src/main/print-escp2.c (1.24.2.4) (+803 -337)
 		src/main/print-pcl.c (1.8.4.4) (+195 -135)
+		src/main/print-weave.c (1.12.4.3) (+61 -41)
 		test/Makefile.am (1.9.2.4) (+16 -6)
+		test/unprint.c (1.2.4.2) (+17 -1)
 
 	Merge in 4.1.10 for the 4.1.10-1 debian release.
 
@@ -8541,6 +9326,7 @@
 		po/POTFILES.in (1.3.4.1) (+3 -3)
 		src/Makefile.am (1.1.4.1) (+2 -2)
 		src/gimp/print.c (1.4.4.2) (+4 -69)
+		src/main/Makefile.am (1.13.4.2) (+2 -2)
 		src/main/gimp-print-internal.h (1.15.4.2) (+45 -19)
 		src/main/print-dither.c (1.10.4.2) (+1254 -506)
 		src/main/print-escp2.c (1.24.2.2) (+508 -492)
@@ -8976,6 +9762,12 @@
 
 2001-03-31	<rlk@sourceforge.net>
 
+	Files:	src/main/print-color.c (1.9.2.3) (+7 -7)
+
+	Bug fixes
+
+2001-03-31	<rlk@sourceforge.net>
+
 	Files:	src/gimp/print.c (1.5.4.1) (+4 -2)
 		src/main/print-canon.c (1.29.2.2) (+6 -5)
 		src/main/print-color.c (1.9.2.2) (+242 -175)
@@ -9228,6 +10020,7 @@
 		debian/rules (1.8.2.1) (+15 -12)
 		po/en_GB.po (1.6.2.1) (+96 -96)
 		src/main/print-canon.c (1.18.2.1) (+348 -288)
+		src/main/print-color.c (1.7.2.3) (+6 -6)
 		src/main/print-escp2.c (1.37.2.3) (+13 -13)
 		src/main/print-lexmark.c (1.18.2.1) (+16 -26)
 		src/main/print-ps.c (1.7.2.1) (+12 -12)
@@ -9339,6 +10132,7 @@
 		src/main/print-escp2.c (1.24.2.1) (+548 -577)
 		src/main/print-pcl.c (1.8.4.1) (+148 -141)
 		src/main/print-weave.c (1.12.4.1) (+135 -93)
+		src/printdef/printdefy.y (1.1.4.1) (+9 -10)
 		test/Makefile.am (1.9.2.1) (+8 -3)
 		test/unprint.c (1.2.4.1) (+3 -3)
 
@@ -9748,6 +10542,7 @@
 	Files:	src/ghost/README (1.9.2.1) (+1 -1)
 		src/ghost/gdevstp.c (1.3.2.1) (+160 -237)
 		src/main/print-escp2.c (1.25.2.6) (+26 -12)
+		src/main/print-ps.c (1.5.2.5) (+2 -2)
 		src/main/print-util.c (1.8.2.7) (+23 -28)
 		src/main/printers.xml (1.9.2.1) (+1 -1)
 
@@ -12065,6 +12860,12 @@
 
 	121169 Ghostscript driver prints second+ pages incorrectly
 	121170 CUPS driver produces incorrect color balance/density
+
+2000-11-02	<rlk@sourceforge.net>
+
+	Files:	Makefile.am (1.70.2.3) (+1 -1)
+
+	Need the source for the man page, not the man page itself, at top level.
 
 2000-10-31	<rlk@sourceforge.net>
 

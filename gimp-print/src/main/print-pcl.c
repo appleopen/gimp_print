@@ -1,5 +1,5 @@
 /*
- * "$Id: print-pcl.c,v 1.1.1.1 2003/01/27 19:05:32 jlovell Exp $"
+ * "$Id: print-pcl.c,v 1.1.1.2 2004/05/03 21:30:30 jlovell Exp $"
  *
  *   Print plug-in HP PCL driver for the GIMP.
  *
@@ -472,8 +472,8 @@ static const pcl_cap_t pcl_model_capabilities[] =
     17 * 72 / 2, 14 * 72,
     1, 1,				/* Min paper size */
     PCL_RES_150_150 | PCL_RES_300_300,
-    {7, 41, 18, 18},
-    {7, 41, 10, 10},	/* Check/Fix */
+    {6, 48, 18, 18},	/* from bpd07933.pdf */
+    {6, 48, 10, 11},	/* from bpd07933.pdf */
     PCL_COLOR_CMY,
     PCL_PRINTER_DJ | PCL_PRINTER_TIFF | PCL_PRINTER_BLANKLINE,
     {
@@ -1168,6 +1168,40 @@ static const pcl_cap_t pcl_model_capabilities[] =
     {12, 12, 10, 10},	/* Check/Fix */
     PCL_COLOR_NONE,
     PCL_PRINTER_LJ,
+    {
+      PCL_PAPERSIZE_EXECUTIVE,
+      PCL_PAPERSIZE_STATEMENT,
+      PCL_PAPERSIZE_LETTER,
+      PCL_PAPERSIZE_LEGAL,
+      PCL_PAPERSIZE_A4,
+      PCL_PAPERSIZE_MONARCH_ENV,
+      PCL_PAPERSIZE_COMMERCIAL10_ENV,
+      PCL_PAPERSIZE_DL_ENV,
+      PCL_PAPERSIZE_C5_ENV,
+      PCL_PAPERSIZE_C6_ENV,
+      -1,
+    },
+    { -1,			/* No selectable paper types */
+    },
+    {
+      PCL_PAPERSOURCE_STANDARD,
+      PCL_PAPERSOURCE_MANUAL,
+      PCL_PAPERSOURCE_LJ_TRAY1,
+      PCL_PAPERSOURCE_LJ_TRAY2,
+      PCL_PAPERSOURCE_LJ_TRAY3,
+      PCL_PAPERSOURCE_LJ_TRAY4,
+      -1,
+    },
+  },
+  /* LaserJet IIP (TIFF but no blankline) */
+  { 21,
+    17 * 72 / 2, 14 * 72,
+    1, 1,				/* Min paper size */
+    PCL_RES_150_150 | PCL_RES_300_300,
+    {12, 12, 18, 18},
+    {12, 12, 10, 10},	/* Check/Fix */
+    PCL_COLOR_NONE,
+    PCL_PRINTER_LJ | PCL_PRINTER_TIFF,
     {
       PCL_PAPERSIZE_EXECUTIVE,
       PCL_PAPERSIZE_STATEMENT,
@@ -2674,8 +2708,8 @@ pcl_print(const stp_printer_t printer,		/* I - Model */
     }
   stp_dither_set_density(dither, stp_get_density(nv));
 
-  in  = stp_malloc(image_width * image_bpp);
-  out = stp_malloc(image_width * out_bpp * 2);
+  in  = stp_zalloc(image_width * image_bpp);
+  out = stp_zalloc(image_width * out_bpp * 2);
 
   errdiv  = image_height / out_height;
   errmod  = image_height % out_height;
@@ -2692,12 +2726,18 @@ pcl_print(const stp_printer_t printer,		/* I - Model */
 #endif
 
   dt = stp_create_dither_data();
-  stp_add_channel(dt, black, ECOLOR_K, 0);
-  stp_add_channel(dt, cyan, ECOLOR_C, 0);
-  stp_add_channel(dt, lcyan, ECOLOR_C, 1);
-  stp_add_channel(dt, magenta, ECOLOR_M, 0);
-  stp_add_channel(dt, lmagenta, ECOLOR_M, 1);
-  stp_add_channel(dt, yellow, ECOLOR_Y, 0);
+  if (black)
+    stp_add_channel(dt, black, ECOLOR_K, 0);
+  if (cyan)
+    stp_add_channel(dt, cyan, ECOLOR_C, 0);
+  if (lcyan)
+    stp_add_channel(dt, lcyan, ECOLOR_C, 1);
+  if (magenta)
+    stp_add_channel(dt, magenta, ECOLOR_M, 0);
+  if (lmagenta)
+    stp_add_channel(dt, lmagenta, ECOLOR_M, 1);
+  if (yellow)
+    stp_add_channel(dt, yellow, ECOLOR_Y, 0);
 
   for (y = 0; y < out_height; y ++)
   {

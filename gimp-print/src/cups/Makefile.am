@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.1.1.1 2003/01/27 19:05:32 jlovell Exp $
+## $Id: Makefile.am,v 1.1.1.2 2004/05/03 21:30:28 jlovell Exp $
 ## Copyright (C) 2000 Roger Leigh
 ##
 ## This program is free software; you can redistribute it and/or modify
@@ -44,6 +44,9 @@ INCLUDES = @INCLUDES@ $(LIBGIMPPRINT_CFLAGS)
 LIBPRINTUT = $(top_builddir)/lib/libprintut.la
 LIBS = $(INTLLIBS) @LIBS@
 
+if BUILD_GENPPD_STATIC
+STATIC_LDOPTS=-static
+endif
 
 ## Programs
 
@@ -62,7 +65,7 @@ EXTRA_PROGRAMS = cups-calibrate commandtoepson epson genppd rastertoprinter comm
 CUPS_LIBS = @CUPS_LIBS@
 
 cups_calibrate_SOURCES = cups-calibrate.c
-cups_calibrate_LDADD = $(LIBPRINTUT) -lm
+cups_calibrate_LDADD = $(LIBPRINTUT) $(LIBM)
 
 commandtoepson_SOURCES = commandtoepson.c
 commandtoepson_LDADD = $(LIBPRINTUT) $(CUPS_LIBS)
@@ -75,10 +78,12 @@ epson_LDADD = $(LIBPRINTUT) $(CUPS_LIBS)
 
 genppd_SOURCES = genppd.c
 genppd_LDADD = $(LIBPRINTUT) $(CUPS_LIBS) $(LIBGIMPPRINT_LIBS)
+genppd_LDFLAGS= $(STATIC_LDOPTS)
 genppd_DEPENDENCIES = $(LIBGIMPPRINT_LIBS)
 
 rastertoprinter_SOURCES = rastertoprinter.c
 rastertoprinter_LDADD = $(LIBPRINTUT) $(CUPS_LIBS) $(LIBGIMPPRINT_LIBS)
+rastertoprinter_LDFLAGS= $(STATIC_LDOPTS)
 rastertoprinter_DEPENDENCIES = $(LIBGIMPPRINT_LIBS)
 
 

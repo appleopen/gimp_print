@@ -1,5 +1,5 @@
 /*
- * "$Id: print-escp2-data.c,v 1.1.1.1 2003/01/27 19:05:32 jlovell Exp $"
+ * "$Id: print-escp2-data.c,v 1.1.1.2 2004/05/03 21:30:30 jlovell Exp $"
  *
  *   Print plug-in EPSON ESC/P2 driver for the GIMP.
  *
@@ -2338,6 +2338,13 @@ static const physical_subchannel_t c80_black_subchannels[] =
 
 DECLARE_INK_CHANNEL(c80_black);
 
+static const physical_subchannel_t c64_black_subchannels[] =
+{
+  { 0, -1, 0 }
+};
+
+DECLARE_INK_CHANNEL(c64_black);
+
 static const physical_subchannel_t standard_cyan_subchannels[] =
 {
   { 2, -1, 0 }
@@ -2358,6 +2365,13 @@ static const physical_subchannel_t c80_cyan_subchannels[] =
 };
 
 DECLARE_INK_CHANNEL(c80_cyan);
+
+static const physical_subchannel_t c64_cyan_subchannels[] =
+{
+  { 2, -1, 0 }
+};
+
+DECLARE_INK_CHANNEL(c64_cyan);
 
 static const physical_subchannel_t standard_magenta_subchannels[] =
 {
@@ -2380,6 +2394,13 @@ static const physical_subchannel_t c80_magenta_subchannels[] =
 
 DECLARE_INK_CHANNEL(c80_magenta);
 
+static const physical_subchannel_t c64_magenta_subchannels[] =
+{
+  { 1, -1, 90 }
+};
+
+DECLARE_INK_CHANNEL(c64_magenta);
+
 static const physical_subchannel_t standard_yellow_subchannels[] =
 {
   { 4, -1, 0 }
@@ -2400,6 +2421,13 @@ static const physical_subchannel_t c80_yellow_subchannels[] =
 };
 
 DECLARE_INK_CHANNEL(c80_yellow);
+
+static const physical_subchannel_t c64_yellow_subchannels[] =
+{
+  { 4, -1, 180 }
+};
+
+DECLARE_INK_CHANNEL(c64_yellow);
 
 static const physical_subchannel_t photo_black_subchannels[] =
 {
@@ -2468,6 +2496,78 @@ static const physical_subchannel_t c80_quadtone_subchannels[] =
 
 DECLARE_INK_CHANNEL(c80_quadtone);
 
+static const physical_subchannel_t c64_quadtone_subchannels[] =
+{
+  { 4, -1, 180 },
+  { 1, -1, 90 },
+  { 2, -1, 0 },
+  { 0, -1, 0 }
+};
+
+DECLARE_INK_CHANNEL(c64_quadtone);
+
+static const physical_subchannel_t f360_standard_cyan_subchannels[] =
+{
+  { 2, -1, 1 }
+};
+
+DECLARE_INK_CHANNEL(f360_standard_cyan);
+
+static const physical_subchannel_t f360_standard_magenta_subchannels[] =
+{
+  { 1, -1, 1 }
+};
+
+DECLARE_INK_CHANNEL(f360_standard_magenta);
+
+static const physical_subchannel_t f360_photo_black_subchannels[] =
+{
+  { 0, 0, 1 }
+};
+
+DECLARE_INK_CHANNEL(f360_photo_black);
+
+static const physical_subchannel_t f360_photo_yellow_subchannels[] =
+{
+  { 4, 0, 1 }
+};
+
+DECLARE_INK_CHANNEL(f360_photo_yellow);
+
+static const physical_subchannel_t f360_photo2_yellow_subchannels[] =
+{
+  { 4, 2, 0 },
+  { 4, 0, 1 }
+};
+
+DECLARE_INK_CHANNEL(f360_photo2_yellow);
+
+static const physical_subchannel_t f360_photo2_black_subchannels[] =
+{
+  { 0, 0, 1 },
+  { 0, 1, 0 }
+};
+
+DECLARE_INK_CHANNEL(f360_photo2_black);
+
+static const physical_subchannel_t f360_photo_cyan_subchannels[] =
+{
+  { 2, 0, 1 },
+  { 2, 1, 0 }
+};
+
+DECLARE_INK_CHANNEL(f360_photo_cyan);
+
+static const physical_subchannel_t f360_photo_magenta_subchannels[] =
+{
+  { 1, 0, 1 },
+  { 1, 1, 0 }
+};
+
+DECLARE_INK_CHANNEL(f360_photo_magenta);
+
+
+
 static const escp2_inkname_t three_color_composite_inkset =
 {
   "RGB", N_ ("Three Color Composite"), 1, INKSET_CMYK, 0, 0,
@@ -2498,6 +2598,16 @@ static const escp2_inkname_t c80_three_color_composite_inkset =
   }
 };
 
+static const escp2_inkname_t c64_three_color_composite_inkset =
+{
+  "RGB", N_ ("Three Color Composite"), 1, INKSET_CMYK, 0, 0,
+  standard_lum_adjustment, standard_hue_adjustment, standard_sat_adjustment,
+  {
+    NULL, &c64_cyan_channels,
+    &c64_magenta_channels, &c64_yellow_channels
+  }
+};
+
 static const escp2_inkname_t four_color_standard_inkset =
 {
   "CMYK", N_ ("Four Color Standard"), 1, INKSET_CMYK, .25, 1.0,
@@ -2525,6 +2635,16 @@ static const escp2_inkname_t c80_four_color_standard_inkset =
   {
     &c80_black_channels, &c80_cyan_channels,
     &c80_magenta_channels, &c80_yellow_channels
+  }
+};
+
+static const escp2_inkname_t c64_four_color_standard_inkset =
+{
+  "CMYK", N_ ("Four Color Standard"), 1, INKSET_CMYK, .25, 1.0,
+  standard_lum_adjustment, standard_hue_adjustment, standard_sat_adjustment,
+  {
+    &c64_black_channels, &c64_cyan_channels,
+    &c64_magenta_channels, &c64_yellow_channels
   }
 };
 
@@ -2605,6 +2725,75 @@ static const escp2_inkname_t c80_piezo_quadtone_inkset =
   }
 };
 
+static const escp2_inkname_t c64_piezo_quadtone_inkset =
+{
+  "Quadtone", N_ ("Quadtone"), 0, INKSET_PIEZO_QUADTONE, 0, 0,
+  NULL, NULL, NULL,
+  {
+    &c64_quadtone_channels, NULL, NULL, NULL
+  }
+};
+
+static const escp2_inkname_t f360_six_color_photo_inkset =
+{
+  "PhotoCMYK", N_("Six Color Photo"), 1, INKSET_CcMmYK, .5, 1.0,
+  standard_lum_adjustment, standard_hue_adjustment, standard_sat_adjustment,
+  {
+    &f360_photo_black_channels, &f360_photo_cyan_channels,
+    &f360_photo_magenta_channels, &f360_photo_yellow_channels
+  }
+};
+
+static const escp2_inkname_t f360_five_color_photo_composite_inkset =
+{
+  "PhotoCMY", N_("Five Color Photo Composite"), 1, INKSET_CcMmYK, 0, 0,
+  standard_lum_adjustment, standard_hue_adjustment, standard_sat_adjustment,
+  {
+    NULL, &f360_photo_cyan_channels,
+    &f360_photo_magenta_channels, &f360_photo_yellow_channels
+  }
+};
+
+static const escp2_inkname_t f360_j_seven_color_enhanced_inkset =
+{
+  "Photo7J", N_("Seven Color Enhanced"), 1, INKSET_CcMmYyK, .5, 1.0,
+  standard_lum_adjustment, standard_hue_adjustment, standard_sat_adjustment,
+  {
+    &f360_photo_black_channels, &f360_photo_cyan_channels,
+    &f360_photo_magenta_channels, &f360_photo2_yellow_channels
+  }
+};
+
+static const escp2_inkname_t f360_j_six_color_enhanced_composite_inkset =
+{
+  "PhotoEnhanceJ", N_("Six Color Enhanced Composite"), 1, INKSET_CcMmYyK, .5, 1.0,
+  standard_lum_adjustment, standard_hue_adjustment, standard_sat_adjustment,
+  {
+    NULL, &f360_photo_cyan_channels,
+    &f360_photo_magenta_channels, &f360_photo2_yellow_channels
+  }
+};
+
+static const escp2_inkname_t f360_seven_color_photo_inkset =
+{
+  "PhotoCMYK7", N_("Seven Color Photo"), 1, INKSET_CcMmYKk, .05 , 1.0,
+  standard_lum_adjustment, standard_hue_adjustment, standard_sat_adjustment,
+  {
+    &f360_photo2_black_channels, &f360_photo_cyan_channels,
+    &f360_photo_magenta_channels, &f360_photo_yellow_channels
+  }
+};
+
+static const escp2_inkname_t f360_two_color_grayscale_inkset =
+{
+  "Gray2", N_("Two Level Grayscale"), 0, INKSET_CcMmYKk, 0, 0,
+  NULL, NULL, NULL,
+  {
+    &f360_photo2_black_channels
+  }
+};
+
+
 #define DECLARE_INKLIST(name)				\
 static const inklist_t name##_inklist =			\
 {							\
@@ -2638,6 +2827,15 @@ static const escp2_inkname_t *const c80_ink_types[] =
 
 DECLARE_INKLIST(c80);
 
+static const escp2_inkname_t *const c64_ink_types[] =
+{
+  &c64_four_color_standard_inkset,
+  &c64_three_color_composite_inkset,
+  &c64_piezo_quadtone_inkset
+};
+
+DECLARE_INKLIST(c64);
+
 static const escp2_inkname_t *const x80_ink_types[] =
 {
   &x80_four_color_standard_inkset,
@@ -2657,6 +2855,17 @@ static const escp2_inkname_t *const photo_ink_types[] =
 
 DECLARE_INKLIST(photo);
 
+static const escp2_inkname_t *const f360_photo_ink_types[] =
+{
+  &f360_six_color_photo_inkset,
+  &f360_five_color_photo_composite_inkset,
+  &four_color_standard_inkset,
+  &three_color_composite_inkset,
+  &piezo_quadtone_inkset
+};
+
+DECLARE_INKLIST(f360_photo);
+
 static const escp2_inkname_t *const photo7_japan_ink_types[] =
 {
   &j_seven_color_enhanced_inkset,
@@ -2670,6 +2879,19 @@ static const escp2_inkname_t *const photo7_japan_ink_types[] =
 
 DECLARE_INKLIST(photo7_japan);
 
+static const escp2_inkname_t *const f360_photo7_japan_ink_types[] =
+{
+  &f360_j_seven_color_enhanced_inkset,
+  &f360_j_six_color_enhanced_composite_inkset,
+  &f360_six_color_photo_inkset,
+  &f360_five_color_photo_composite_inkset,
+  &four_color_standard_inkset,
+  &three_color_composite_inkset,
+  &piezo_quadtone_inkset
+};
+
+DECLARE_INKLIST(f360_photo7_japan);
+
 static const escp2_inkname_t *const photo7_ink_types[] =
 {
   &seven_color_photo_inkset,
@@ -2681,6 +2903,18 @@ static const escp2_inkname_t *const photo7_ink_types[] =
 };
 
 DECLARE_INKLIST(photo7);
+
+static const escp2_inkname_t *const f360_photo7_ink_types[] =
+{
+  &f360_seven_color_photo_inkset,
+  &f360_six_color_photo_inkset,
+  &f360_five_color_photo_composite_inkset,
+  &four_color_standard_inkset,
+  &three_color_composite_inkset,
+  &two_color_grayscale_inkset
+};
+
+DECLARE_INKLIST(f360_photo7);
 
 
 
@@ -2989,7 +3223,7 @@ static const escp2_dot_size_t sc720_dotsizes =
 { -1,   0x12,   -1, 0x12,   -1, 0x11,   -1, 0x11,   -1, 0x11,   -1,   -1,   -1 };
 
 static const escp2_dot_size_t sc660_dotsizes =
-{ -1,      3,    3,   -1,    3,    0,   -1,    0,   -1,    0,   -1,   -1,   -1 };
+{  3,     -1,    3,   -1,    3,    0,   -1,    0,   -1,    0,   -1,   -1,   -1 };
 
 static const escp2_dot_size_t sc480_dotsizes =
 { -1,   0x13,   -1, 0x13,   -1, 0x13,   -1, 0x10,   -1, 0x10,   -1, 0x10, 0x10 };
@@ -3014,6 +3248,9 @@ static const escp2_dot_size_t c3pl_pigment_dotsizes =
 
 static const escp2_dot_size_t c2pl_dotsizes =
 {   -1, 0x12,   -1, 0x12,   -1, 0x12,   -1, 0x11,   -1, 0x13,   -1, 0x13,  0x10 };
+  
+static const escp2_dot_size_t c1_8pl_dotsizes =
+{   -1, 0x10,   -1, 0x10,   -1, 0x10,   -1, 0x10,   -1, 0x11,   -1,   -1,  0x12 };
 
 static const escp2_dot_size_t c4pl_pigment_dotsizes =
 { -1,   0x12,   -1, 0x12,   -1, 0x12,   -1, 0x11,   -1, 0x11,   -1, 0x10, 0x10 };
@@ -3053,6 +3290,10 @@ static const escp2_bits_t ultrachrome_bits =
 static const escp2_bits_t standard_bits =
 {    1,    1,    1,    1,    1,    1,    1,    1,    1,    1,    1,    1,    1 };
 
+static const escp2_bits_t c1_8_bits =
+{    2,    2,    2,    2,    2,    2,    2,    2,    2,    2,    1,    1,    1 };
+
+
 /*
  * Base resolutions are for:
  *
@@ -3087,6 +3328,9 @@ static const escp2_base_resolutions_t stp950_base_res =
 
 static const escp2_base_resolutions_t ultrachrome_base_res =
 {  360,  360,  360,  360,  360,  360,  360,  360,  360,  360,  720,  720,  720 };
+
+static const escp2_base_resolutions_t c1_8_base_res =
+{  360,  360,  360,  360,  720,  720,  720,  720,  720,  720, 1440, 1440, 1440 };
 
 static const escp2_base_resolutions_t stc900_base_res =
 {  360,  360,  360,  360,  360,  360,  360,  360,  180,  180,  180,  180,  180 };
@@ -3203,9 +3447,9 @@ static const res_t standard_reslist[] =
     360,  360,  360,  360,  1,  0, 1, 1, 0, 1, 1, RES_360 },
   { "360swuni",         N_("360 DPI Unidirectional"),
     360,  360,  360,  360,  1,  0, 1, 1, 1, 1, 1, RES_360 },
-  { "360mw",            N_("360 DPI Microweave"),
+  { "360mw",            N_("360 DPI Interleave"),
     360,  360,  360,  360,  0,  1, 1, 1, 0, 1, 1, RES_360_M },
-  { "360mwuni",         N_("360 DPI Microweave Unidirectional"),
+  { "360mwuni",         N_("360 DPI Interleave Unidirectional"),
     360,  360,  360,  360,  0,  1, 1, 1, 1, 1, 1, RES_360_M },
   { "360dpi",           N_("360 DPI"),
     360,  360,  360,  360,  0,  0, 1, 1, 0, 1, 1, RES_360_M },
@@ -3217,9 +3461,9 @@ static const res_t standard_reslist[] =
   { "720x360swuni",     N_("720 x 360 DPI Unidirectional"),
     720,  360,  720,  360,  1,  0, 1, 1, 1, 2, 1, RES_720_360 },
 
-  { "720mw",            N_("720 DPI Microweave"),
+  { "720mw",            N_("720 DPI Interleave"),
     720,  720,  720,  720,  0,  1, 1, 1, 0, 1, 1, RES_720_M },
-  { "720mwuni",         N_("720 DPI Microweave Unidirectional"),
+  { "720mwuni",         N_("720 DPI Interleave Unidirectional"),
     720,  720,  720,  720,  0,  1, 1, 1, 1, 1, 1, RES_720_M },
   { "720sw",            N_("720 DPI"),
     720,  720,  720,  720,  1,  0, 1, 1, 0, 1, 1, RES_720 },
@@ -3232,9 +3476,9 @@ static const res_t standard_reslist[] =
   { "720hq2",           N_("720 DPI Highest Quality"),
     720,  720,  720,  720,  1,  0, 4, 1, 1, 1, 1, RES_720 },
 
-  { "1440x720mw",       N_("1440 x 720 DPI Microweave"),
+  { "1440x720mw",       N_("1440 x 720 DPI Interleave"),
     1440, 720,  1440, 720,  0,  1, 1, 1, 0, 1, 1, RES_1440_720_M },
-  { "1440x720mwuni",    N_("1440 x 720 DPI Microweave Unidirectional"),
+  { "1440x720mwuni",    N_("1440 x 720 DPI Interleave Unidirectional"),
     1440, 720,  1440, 720,  0,  1, 1, 1, 1, 1, 1, RES_1440_720_M },
   { "1440x720sw",       N_("1440 x 720 DPI"),
     1440, 720,  1440, 720,  1,  0, 1, 1, 0, 1, 1, RES_1440_720 },
@@ -3349,6 +3593,37 @@ static const res_t escp950_reslist[] =
   { "", "", 0, 0, 0, 0, 0, 0, 0, 0, 1, -1 }
 };
 
+static const res_t c1_8pl_reslist[] =
+{
+  { "720x360sw",        N_("720 x 360 DPI"),
+    720,  360,  720,  360,  1,  0, 1, 1, 0, 2, 1, RES_720_360 },
+  { "720x360swuni",     N_("720 x 360 DPI Unidirectional"),
+    720,  360,  720,  360,  1,  0, 1, 1, 1, 2, 1, RES_720_360 },
+
+  { "720sw",            N_("720 DPI"),
+    720,  720,  720,  720,  1,  0, 1, 1, 0, 1, 1, RES_720 },
+  { "720swuni",         N_("720 DPI Unidirectional"),
+    720,  720,  720,  720,  1,  0, 1, 1, 1, 1, 1, RES_720 },
+  { "720hq",            N_("720 DPI High Quality"),
+    720,  720,  720,  720,  1,  0, 2, 1, 0, 1, 1, RES_720 },
+  { "720hquni",         N_("720 DPI High Quality Unidirectional"),
+    720,  720,  720,  720,  1,  0, 2, 1, 1, 1, 1, RES_720 },
+  { "720hq2",           N_("720 DPI Highest Quality"),
+    720,  720,  720,  720,  1,  0, 4, 1, 1, 1, 1, RES_720 },
+
+  { "1440x720sw",       N_("1440 x 720 DPI"),
+    1440, 720,  1440, 720,  1,  0, 1, 1, 0, 1, 1, RES_1440_720 },
+  { "1440x720swuni",    N_("1440 x 720 DPI Unidirectional"),
+    1440, 720,  1440, 720,  1,  0, 1, 1, 1, 1, 1, RES_1440_720 },
+  { "1440x720hq2",      N_("1440 x 720 DPI Highest Quality"),
+    1440, 720,  1440, 720,  1,  0, 2, 1, 1, 1, 1, RES_1440_720 },
+
+  { "2880x1440sw",      N_("2880 x 1440 DPI"),
+    2880, 1440, 2880, 1440, 1,  0, 1, 1, 1, 1, 1, RES_2880_1440},
+
+  { "", "", 0, 0, 0, 0, 0, 0, 0, 0, 1, -1 }
+};
+
 static const res_t escp2200_reslist[] =
 {
   { "360x180dpi",       N_("360 x 180 DPI Draft"),
@@ -3400,7 +3675,7 @@ static const res_t escp2200_reslist[] =
   { "", "", 0, 0, 0, 0, 0, 0, 0, 0, 1, -1 }
 };
 
-static const res_t no_microweave_reslist[] =
+static const res_t no_interleave_reslist[] =
 {
   { "360x90dpi",        N_("360 x 90 DPI Fast Economy Draft"),
     360,  90,   360,  90,   0,  0, 1, 1, 0, 1, 1, RES_120_M },
@@ -3492,9 +3767,9 @@ static const res_t pro_reslist[] =
   { "360x180dpi",       N_("360 x 180 DPI Draft"),
     360,  180,  360,  180,  0,  0, 1, 1, 0, 1, 1, RES_180_M },
 
-  { "360mw",            N_("360 DPI Microweave"),
+  { "360mw",            N_("360 DPI Interleave"),
     360,  360,  360,  360,  0,  1, 1, 1, 0, 1, 1, RES_360_M },
-  { "360mwuni",         N_("360 DPI Microweave Unidirectional"),
+  { "360mwuni",         N_("360 DPI Interleave Unidirectional"),
     360,  360,  360,  360,  0,  1, 1, 1, 1, 1, 1, RES_360_M },
   { "360dpi",           N_("360 DPI"),
     360,  360,  360,  360,  0,  0, 1, 1, 0, 1, 1, RES_360_M },
@@ -3517,9 +3792,9 @@ static const res_t pro_reslist[] =
     720,  360,  720,  360,  0,  0, 1, 1, 0, 2, 1, RES_720_360_M },
   { "720x360uni",       N_("720 x 360 DPI Unidirectional"),
     720,  360,  720,  360,  0,  0, 1, 1, 1, 2, 1, RES_720_360_M },
-  { "720x360mw",        N_("720 x 360 DPI Microweave"),
+  { "720x360mw",        N_("720 x 360 DPI Interleave"),
     720,  360,  720,  360,  0,  1, 1, 1, 0, 2, 1, RES_720_360_M },
-  { "720x360mwuni",     N_("720 x 360 DPI Microweave Unidirectional"),
+  { "720x360mwuni",     N_("720 x 360 DPI Interleave Unidirectional"),
     720,  360,  720,  360,  0,  1, 1, 1, 1, 2, 1, RES_720_360_M },
   { "720x360fol",       N_("720 x 360 DPI FOL"),
     720,  360,  720,  360,  0,  2, 1, 1, 0, 2, 1, RES_720_360_M },
@@ -3534,9 +3809,9 @@ static const res_t pro_reslist[] =
   { "720x360mw2uni",    N_("720 x 360 DPI MW2 Unidirectional"),
     720,  360,  720,  360,  0,  5, 1, 1, 1, 2, 1, RES_720_360_M },
 
-  { "720mw",            N_("720 DPI Microweave"),
+  { "720mw",            N_("720 DPI Interleave"),
     720,  720,  720,  720,  0,  1, 1, 1, 0, 1, 1, RES_720_M },
-  { "720mwuni",         N_("720 DPI Microweave Unidirectional"),
+  { "720mwuni",         N_("720 DPI Interleave Unidirectional"),
     720,  720,  720,  720,  0,  1, 1, 1, 1, 1, 1, RES_720_M },
   { "720fol",           N_("720 DPI Full Overlap"),
     720,  720,  720,  720,  0,  2, 1, 1, 0, 1, 1, RES_720_M },
@@ -3547,9 +3822,9 @@ static const res_t pro_reslist[] =
   { "720fourpuni",      N_("720 DPI Four Pass Unidirectional"),
     720,  720,  720,  720,  0,  3, 1, 1, 1, 1, 1, RES_720_M },
 
-  { "1440x720mw",       N_("1440 x 720 DPI Microweave"),
+  { "1440x720mw",       N_("1440 x 720 DPI Interleave"),
     1440, 720,  1440, 720,  0,  1, 1, 1, 0, 1, 1, RES_1440_720_M },
-  { "1440x720mwuni",    N_("1440 x 720 DPI Microweave Unidirectional"),
+  { "1440x720mwuni",    N_("1440 x 720 DPI Interleave Unidirectional"),
     1440, 720,  1440, 720,  0,  1, 1, 1, 1, 1, 1, RES_1440_720_M },
   { "1440x720fol",      N_("1440 x 720 DPI FOL"),
     1440, 720,  1440, 720,  0,  2, 1, 1, 0, 1, 1, RES_1440_720_M },
@@ -3560,9 +3835,9 @@ static const res_t pro_reslist[] =
   { "1440x720fourpuni", N_("1440 x 720 DPI Four Pass Unidirectional"),
     1440, 720,  1440, 720,  0,  3, 1, 1, 1, 1, 1, RES_1440_720_M },
 
-  { "2880x720mw",       N_("2880 x 720 DPI Microweave"),
+  { "2880x720mw",       N_("2880 x 720 DPI Interleave"),
     2880, 720,  2880, 720,  0,  1, 1, 1, 0, 1, 1, RES_2880_720_M },
-  { "2880x720mwuni",    N_("2880 x 720 DPI Microweave Unidirectional"),
+  { "2880x720mwuni",    N_("2880 x 720 DPI Interleave Unidirectional"),
     2880, 720,  2880, 720,  0,  1, 1, 1, 1, 1, 1, RES_2880_720_M },
   { "2880x720fol",      N_("2880 x 720 DPI FOL"),
     2880, 720,  2880, 720,  0,  2, 1, 1, 0, 1, 1, RES_2880_720_M },
@@ -3573,9 +3848,9 @@ static const res_t pro_reslist[] =
   { "2880x720fourpuni", N_("2880 x 720 DPI Four Pass Unidirectional"),
     2880, 720,  2880, 720,  0,  3, 1, 1, 1, 1, 1, RES_2880_720_M },
 
-  { "1440x1440mw",       N_("1440 x 1440 DPI Microweave"),
+  { "1440x1440mw",       N_("1440 x 1440 DPI Interleave"),
     1440, 1440,  1440, 1440,  0,  1, 1, 1, 0, 1, 1, RES_1440_1440_M },
-  { "1440x1440mwuni",    N_("1440 x 1440 DPI Microweave Unidirectional"),
+  { "1440x1440mwuni",    N_("1440 x 1440 DPI Interleave Unidirectional"),
     1440, 1440,  1440, 1440,  0,  1, 1, 1, 1, 1, 1, RES_1440_1440_M },
   { "1440x1440fol",      N_("1440 x 1440 DPI FOL"),
     1440, 1440,  1440, 1440,  0,  2, 1, 1, 0, 1, 1, RES_1440_1440_M },
@@ -3586,9 +3861,9 @@ static const res_t pro_reslist[] =
   { "1440x1440fourpuni", N_("1440 x 1440 DPI Four Pass Unidirectional"),
     1440, 1440,  1440, 1440,  0,  3, 1, 1, 1, 1, 1, RES_1440_1440_M },
 
-  { "2880x1440mw",       N_("2880 x 1440 DPI Microweave"),
+  { "2880x1440mw",       N_("2880 x 1440 DPI Interleave"),
     2880, 1440,  2880, 1440,  0,  1, 1, 1, 0, 1, 1, RES_2880_1440_M },
-  { "2880x1440mwuni",    N_("2880 x 1440 DPI Microweave Unidirectional"),
+  { "2880x1440mwuni",    N_("2880 x 1440 DPI Interleave Unidirectional"),
     2880, 1440,  2880, 1440,  0,  1, 1, 1, 1, 1, 1, RES_2880_1440_M },
   { "2880x1440fol",      N_("2880 x 1440 DPI FOL"),
     2880, 1440,  2880, 1440,  0,  2, 1, 1, 0, 1, 1, RES_2880_1440_M },
@@ -3831,7 +4106,7 @@ const escp2_stp_printer_t stp_escp2_model_capabilities[] =
     (MODEL_VARIABLE_NO | MODEL_COMMAND_1998 | MODEL_GRAYMODE_NO |
      MODEL_ROLLFEED_NO | MODEL_XZEROMARGIN_NO | MODEL_VACUUM_NO |
      MODEL_FAST_360_NO),
-    64, 1, 2, 128, 1, 1, 128, 1, 1,
+    64, 1, 2, 64, 1, 2, 64, 1, 2,
     360, 720, 720, 14400, -1, 1440, 720, 90, 90,
     INCH(17 / 2), INCH(44), INCH(2), INCH(4),
     9, 9, 9, 40, 9, 9, 9, 40, 9, 9, 0, 0, 9, 9, 0, 0,
@@ -3916,7 +4191,7 @@ const escp2_stp_printer_t stp_escp2_model_capabilities[] =
     9, 9, 0, 9, 9, 9, 0, 9, 9, 9, 0, 0, 9, 9, 0, 0,
     0, 1, 0, 0, 0, 0, 8,
     sc440_dotsizes, sc440_densities, &simple_inks,
-    &standard_paper_list, no_microweave_reslist, &standard_inklist,
+    &standard_paper_list, no_interleave_reslist, &standard_inklist,
     standard_bits, standard_base_res, &default_input_slot_list,
     NULL, NULL
   },
@@ -4034,7 +4309,7 @@ const escp2_stp_printer_t stp_escp2_model_capabilities[] =
     360, 720, 720, 14400, -1, 1440, 720, 90, 90,
     INCH(17 / 2), INCH(44), INCH(2), INCH(4),
     9, 9, 9, 9, 9, 9, 9, 26, 9, 9, 9, 0, 9, 9, 9, 0,
-    0, 1, 8, 0, 0, 0, 8,
+    0, 1, 0, 0, 0, 0, 8,
     sc660_dotsizes,sc660_densities, &simple_inks,
     &standard_paper_list, standard_reslist, &standard_inklist,
     standard_bits, standard_base_res, &default_input_slot_list,
@@ -4120,7 +4395,7 @@ const escp2_stp_printer_t stp_escp2_model_capabilities[] =
     (MODEL_VARIABLE_NO | MODEL_COMMAND_1998 | MODEL_GRAYMODE_YES |
      MODEL_ROLLFEED_YES | MODEL_XZEROMARGIN_NO | MODEL_VACUUM_NO |
      MODEL_FAST_360_NO),
-    64, 1, 2, 128, 1, 1, 128, 1, 1,
+    64, 1, 2, 64, 1, 2, 64, 1, 2,
     360, 720, 720, 14400, -1, 1440, 720, 90, 90,
     INCH(17), INCH(44), INCH(2), INCH(4),
     8, 9, 9, 40, 8, 9, 9, 40, 8, 9, 0, 0, 8, 9, 0, 0,
@@ -4345,7 +4620,7 @@ const escp2_stp_printer_t stp_escp2_model_capabilities[] =
     (MODEL_VARIABLE_NO | MODEL_COMMAND_1998 | MODEL_GRAYMODE_NO |
      MODEL_ROLLFEED_NO | MODEL_XZEROMARGIN_NO | MODEL_VACUUM_NO |
      MODEL_FAST_360_NO),
-    48, 1, 3, 48, 1, 3, 48, 1, 3,
+    16, 1, 4, 16, 1, 4, 16, 1, 4,
     360, 720, 720, 14400, -1, 720, 720, 90, 90,
     INCH(13), INCH(1200), INCH(2), INCH(4),
     9, 9, 9, 40, 9, 9, 9, 40, 9, 9, 0, 0, 9, 9, 0, 0,
@@ -4435,7 +4710,7 @@ const escp2_stp_printer_t stp_escp2_model_capabilities[] =
     (MODEL_VARIABLE_NO | MODEL_COMMAND_1998 | MODEL_GRAYMODE_NO |
      MODEL_ROLLFEED_NO | MODEL_XZEROMARGIN_NO | MODEL_VACUUM_NO |
      MODEL_FAST_360_NO),
-    48, 1, 3, 48, 1, 3, 48, 1, 3,
+    16, 1, 4, 16, 1, 4, 16, 1, 4,
     360, 720, 720, 14400, -1, 720, 720, 90, 90,
     INCH(17 / 2), INCH(44), INCH(2), INCH(4),
     9, 9, 9, 40, 9, 9, 9, 40, 9, 9, 0, 0, 9, 9, 0, 0,
@@ -4456,7 +4731,7 @@ const escp2_stp_printer_t stp_escp2_model_capabilities[] =
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 1, 0, 190, 0, 0, 0,
     c2pl_dotsizes, c2pl_densities, &variable_2pl_inks,
-    &sp950_paper_list, escp950_reslist, &photo_inklist,
+    &sp950_paper_list, escp950_reslist, &f360_photo_inklist,
     stp950_bits, stp950_base_res, &cutter_roll_feed_input_slot_list,
     &new_init_sequence, &je_deinit_sequence
   },
@@ -4471,7 +4746,7 @@ const escp2_stp_printer_t stp_escp2_model_capabilities[] =
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 1, 0, 190, 0, 0, 0,
     c4pl_pigment_dotsizes, c4pl_pigment_densities, &variable_4pl_pigment_inks,
-    &standard_paper_list, escp2200_reslist, &photo7_inklist,
+    &standard_paper_list, escp2200_reslist, &f360_photo7_inklist,
     ultrachrome_bits, ultrachrome_base_res, &cutter_roll_feed_input_slot_list,
     &new_init_sequence, &je_deinit_sequence
   },
@@ -4554,14 +4829,14 @@ const escp2_stp_printer_t stp_escp2_model_capabilities[] =
   {
     (MODEL_VARIABLE_YES | MODEL_COMMAND_2000 | MODEL_GRAYMODE_NO |
      MODEL_ROLLFEED_YES | MODEL_XZEROMARGIN_YES | MODEL_VACUUM_NO |
-     MODEL_FAST_360_NO),
+     MODEL_FAST_360_YES),
     96, 1, 2, 96, 1, 2, 96, 1, 2,
     360, 720, 720, 14400, -1, 2880, 1440, 360, 180,
     INCH(17 / 2), INCH(1200), INCH(2), INCH(4),
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 1, 0, 190, 0, 0, 0,
     c2pl_dotsizes, c2pl_densities, &variable_2pl_inks,
-    &sp950_paper_list, escp950_reslist, &photo7_japan_inklist,
+    &sp950_paper_list, escp950_reslist, &f360_photo7_japan_inklist,
     stp950_bits, stp950_base_res, &standard_roll_feed_input_slot_list,
     &new_init_sequence, &je_deinit_sequence
   },
@@ -4592,6 +4867,96 @@ const escp2_stp_printer_t stp_escp2_model_capabilities[] =
     0, 1, 0, 0, -240, 0, 0,
     c3pl_pigment_dotsizes, c3pl_pigment_densities, &variable_3pl_pigment_inks,
     &c80_paper_list, standard_reslist, &c80_inklist,
+    variable_bits, variable_base_res, &default_input_slot_list,
+    &new_init_sequence, &je_deinit_sequence
+  },
+  /* 56: Stylus C50 */
+  {
+    (MODEL_VARIABLE_YES | MODEL_COMMAND_2000 | MODEL_GRAYMODE_YES |
+     MODEL_ROLLFEED_NO | MODEL_XZEROMARGIN_NO | MODEL_VACUUM_NO |
+     MODEL_FAST_360_NO),
+    15, 15, 3, 48, 48, 3, 48, 48, 3,
+    360, 720, 720, 14400, -1, 1440, 720, 90, 90,
+    INCH(17 / 2), INCH(1200), INCH(2), INCH(4),
+    9, 9, 0, 9, 9, 9, 9, 9, 9, 9, 0, 0, 9, 9, 0, 0,
+    0, 1, 0, 0, -99, 0, 0,
+    c4pl_dotsizes, c4pl_densities, &variable_4pl_inks,
+    &standard_paper_list, standard_reslist, &x80_inklist,
+    variable_bits, variable_base_res, &default_input_slot_list,
+    &new_init_sequence, &je_deinit_sequence
+  },
+  /* 57: Japanese PM-970C */
+  {
+    (MODEL_VARIABLE_YES | MODEL_COMMAND_2000 | MODEL_GRAYMODE_NO |
+     MODEL_ROLLFEED_YES | MODEL_XZEROMARGIN_YES | MODEL_VACUUM_NO |
+     MODEL_FAST_360_YES),
+    180, 180, 2, 360, 360, 1, 360, 360, 1,
+    360, 720, 720, 14400, -1, 2880, 1440, 720, 360,
+    INCH(17 / 2), INCH(1200), INCH(2), INCH(4),
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 1, 0, 190, 0, 0, 0,
+    c1_8pl_dotsizes, c2pl_densities, &variable_2pl_inks,
+    &sp950_paper_list, c1_8pl_reslist, &f360_photo7_japan_inklist,
+    c1_8_bits, c1_8_base_res, &standard_roll_feed_input_slot_list,
+    &new_init_sequence, &je_deinit_sequence
+  },
+  /* 58: Japanese PM-930C */
+  {
+    (MODEL_VARIABLE_YES | MODEL_COMMAND_2000 | MODEL_GRAYMODE_NO |
+     MODEL_ROLLFEED_YES | MODEL_XZEROMARGIN_YES | MODEL_VACUUM_NO |
+     MODEL_FAST_360_NO),
+    90, 90, 2, 90, 90, 2, 90, 90, 2,
+    360, 720, 720, 14400, -1, 2880, 1440, 720, 360,
+    INCH(17 / 2), INCH(1200), INCH(2), INCH(4),
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 1, 0, 190, 0, 0, 0,
+    c1_8pl_dotsizes, c2pl_densities, &variable_2pl_inks,
+    &sp950_paper_list, c1_8pl_reslist, &photo_inklist,
+    c1_8_bits, c1_8_base_res, &standard_roll_feed_input_slot_list,
+    &new_init_sequence, &je_deinit_sequence
+  },
+  /* 59: Stylus C43SX/C43UX/C44SX/C44UX (WRONG -- Really entry 43!) */
+  {
+    (MODEL_VARIABLE_YES | MODEL_COMMAND_2000 | MODEL_GRAYMODE_YES |
+     MODEL_ROLLFEED_NO | MODEL_XZEROMARGIN_NO | MODEL_VACUUM_NO |
+     MODEL_FAST_360_NO),
+    15, 15, 3, 48, 48, 3, 48, 48, 3,
+    360, 720, 720, 14400, -1, 2880, 720, 90, 90,
+    INCH(17 / 2), INCH(1200), INCH(2), INCH(4),
+    9, 9, 0, 9, 9, 9, 9, 9, 9, 9, 0, 0, 9, 9, 0, 0,
+    0, 1, 0, 0, -99, 0, 0,
+    sc480_dotsizes, sc480_densities, &variable_x80_6pl_inks,
+    &standard_paper_list, standard_reslist, &x80_inklist,
+    variable_bits, variable_base_res, &default_input_slot_list,
+    &new_init_sequence, &je_deinit_sequence
+  },
+  /* 60: Stylus C83/C84 */
+  {
+    (MODEL_VARIABLE_YES | MODEL_COMMAND_2000 | MODEL_GRAYMODE_YES |
+     MODEL_ROLLFEED_NO | MODEL_XZEROMARGIN_YES | MODEL_VACUUM_NO |
+     MODEL_FAST_360_NO),
+    59, 60, 2, 180, 180, 2, 180, 180, 2,
+    360, 720, 720, 14400, -1, 2880, 1440, 360, 180,
+    INCH(17 / 2), INCH(1200), INCH(2), INCH(4),
+    9, 9, 0, 9, 9, 9, 9, 9, 9, 9, 0, 0, 9, 9, 0, 0,
+    0, 1, 0, 0, -240, 0, 0,
+    c3pl_pigment_dotsizes, c3pl_pigment_densities, &variable_3pl_pigment_inks,
+    &c80_paper_list, standard_reslist, &c80_inklist,
+    variable_bits, variable_base_res, &default_input_slot_list,
+    &new_init_sequence, &je_deinit_sequence
+  },
+  /* 61: Stylus C63/C64 */
+  {
+    (MODEL_VARIABLE_YES | MODEL_COMMAND_2000 | MODEL_GRAYMODE_YES |
+     MODEL_ROLLFEED_NO | MODEL_XZEROMARGIN_YES | MODEL_VACUUM_NO |
+     MODEL_FAST_360_NO),
+    29, 30, 3, 90, 90, 3, 90, 90, 3,
+    360, 720, 720, 14400, -1, 2880, 1440, 360, 180,
+    INCH(17 / 2), INCH(1200), INCH(2), INCH(4),
+    9, 9, 0, 9, 9, 9, 9, 9, 9, 9, 0, 0, 9, 9, 0, 0,
+    0, 1, 0, 0, -180, 0, 0,
+    c3pl_pigment_dotsizes, c3pl_pigment_densities, &variable_3pl_pigment_inks,
+    &c80_paper_list, standard_reslist, &c64_inklist,
     variable_bits, variable_base_res, &default_input_slot_list,
     &new_init_sequence, &je_deinit_sequence
   },

@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.1.1.1 2003/01/27 19:05:32 jlovell Exp $
+## $Id: Makefile.am,v 1.1.1.2 2004/05/03 21:30:29 jlovell Exp $
 ## Copyright (C) 2000 Roger Leigh
 ##
 ## This program is free software; you can redistribute it and/or modify
@@ -81,6 +81,12 @@ else
 FOOMATIC_GENERATOR_FOOMATIC_3_OPTS =
 endif
 
+if BUILD_FOOMATIC_OLDIDS
+FOOMATIC_GENERATOR_OLDIDS_OPTS = -o
+else
+FOOMATIC_GENERATOR_OLDIDS_OPTS =
+endif
+
 if BUILD_IJS
 FOOMATIC_GENERATOR_EXTRA_OPTS = -d all
 FOOMATIC_IJS = yes
@@ -114,7 +120,7 @@ foomatic-data: foomatic-stamp
 
 foomatic-stamp: foomatic-generator foomatic-printermap $(EXTRA_PROGRAMS)
 	-$(RM) -r foomatic-db
-	./foomatic-generator -m $(srcdir)/foomatic-printermap -t $(srcdir)/foomatic-templates $(FOOMATIC_GENERATOR_EXTRA_OPTS) $(FOOMATIC_GENERATOR_FOOMATIC_3_OPTS)
+	./foomatic-generator -m $(srcdir)/foomatic-printermap -t $(srcdir)/foomatic-templates $(FOOMATIC_GENERATOR_EXTRA_OPTS) $(FOOMATIC_GENERATOR_FOOMATIC_3_OPTS) $(FOOMATIC_GENERATOR_OLDIDS_OPTS)
 	touch foomatic-stamp
 
 $(LIBGIMPPRINT_LIBS):
@@ -128,6 +134,7 @@ CLEANFILES = $(noinst_PROGRAMS) foomatic-stamp
 MAINTAINERCLEANFILES = Makefile.in
 
 EXTRA_DIST = foomatic-printermap 		\
+	oldprinterids				\
 	foomatic-templates-gs/*.xml		\
 	foomatic-templates-ijs/*.xml
 

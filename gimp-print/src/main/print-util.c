@@ -1,5 +1,5 @@
 /*
- * "$Id: print-util.c,v 1.1.1.1 2003/01/27 19:05:32 jlovell Exp $"
+ * "$Id: print-util.c,v 1.1.1.2 2004/05/03 21:30:31 jlovell Exp $"
  *
  *   Print plug-in driver utility functions for the GIMP.
  *
@@ -560,6 +560,8 @@ static stp_internal_papersize_t paper_sizes[] =
     864, 1296, 0, 0, 0, 0, PAPERSIZE_ENGLISH },
   { "SuperB",		N_ ("Super B 13x19"),
     936, 1368, 0, 0, 0, 0, PAPERSIZE_ENGLISH },
+  { "EngineeringC",	N_ ("Engineering C 17x22"),
+    1224, 1584, 0, 0, 0, 0, PAPERSIZE_ENGLISH },
 
   /* Other common photographic paper sizes */
   { "w576h864",		N_ ("8x12"),
@@ -801,6 +803,8 @@ static stp_internal_papersize_t paper_sizes[] =
     365, 561, 0, 0, 0, 0, PAPERSIZE_METRIC }, /* 129mm x 198mm */
 
   /* Miscellaneous sizes */
+  { "w283h425",		N_ ("10cm x 15cm"),
+    283, 425, 0, 0, 0, 0, PAPERSIZE_METRIC }, /* 100 x 150 mm */
   { "w283h420",		N_ ("Hagaki Card"),
     283, 420, 0, 0, 0, 0, PAPERSIZE_METRIC }, /* 100 x 148 mm */
   { "w420h567",		N_ ("Oufuku Card"),

@@ -1,4 +1,4 @@
-## $Id: Makefile.am,v 1.1.1.1 2003/01/27 19:05:32 jlovell Exp $
+## $Id: Makefile.am,v 1.1.1.2 2004/05/03 21:30:30 jlovell Exp $
 ## Copyright (C) 2000 Roger Leigh
 ##
 ## This program is free software; you can redistribute it and/or modify
@@ -32,14 +32,9 @@ INCLUDES = @INCLUDES@
 
 ## Programs
 
-MAIN_BIN = libgimpprint.la
-MAIN_SCR = gimpprint-config
+bin_SCRIPTS = gimpprint-config
 
-bin_SCRIPTS = @MAIN_SCR@
-EXTRA_SCRIPTS = gimpprint-config
-
-lib_LTLIBRARIES = @MAIN_BIN@
-EXTRA_LTLIBRARIES = libgimpprint.la
+lib_LTLIBRARIES = libgimpprint.la
 
 libgimpprint_la_SOURCES = \
 	gimp-print-internal.h \
@@ -71,10 +66,8 @@ libgimpprint_la_LDFLAGS = \
 
 ## Data
 
-MAIN_DAT = gimpprint.m4
-
 m4datadir = $(datadir)/aclocal
-m4data_DATA = @MAIN_DAT@
+m4data_DATA = gimpprint.m4
 
 
 ## Rules

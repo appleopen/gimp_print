@@ -1,5 +1,5 @@
 /*
- * "$Id: escputil.c,v 1.1.1.1 2003/01/27 19:05:32 jlovell Exp $"
+ * "$Id: escputil.c,v 1.1.1.2 2004/05/03 21:30:28 jlovell Exp $"
  *
  *   Printer maintenance utility for EPSON Stylus (R) printers
  *
@@ -29,11 +29,13 @@
 #include <string.h>
 #include <stdlib.h>
 #include <errno.h>
-#include <fcntl.h>
 #if defined(HAVE_VARARGS_H) && !defined(HAVE_STDARG_H)
 #include <varargs.h>
 #else
 #include <stdarg.h>
+#endif
+#ifdef HAVE_FCNTL_H
+#include <fcntl.h>
 #endif
 #ifdef HAVE_POLL
 #include <sys/poll.h>
@@ -204,12 +206,21 @@ stp_printer_t printer_list[] =
   { "C41ux",	N_("Stylus C41ux"),	3,	15,	0,	2,	9 },
   { "C42sx",	N_("Stylus C42sx"),	3,	15,	0,	2,	9 },
   { "C42ux",	N_("Stylus C42ux"),	3,	15,	0,	2,	9 },
+  { "C43sx",	N_("Stylus C43sx"),	3,	15,	0,	2,	9 },
+  { "C43ux",	N_("Stylus C43ux"),	3,	15,	0,	2,	9 },
+  { "C44sx",	N_("Stylus C44sx"),	3,	15,	0,	2,	9 },
+  { "C44ux",	N_("Stylus C44ux"),	3,	15,	0,	2,	9 },
+  { "C50",	N_("Stylus C50"),	3,	15,	0,	2,	9 },
   { "C60",	N_("Stylus C60"),	3,	15,	0,	0,	0 },
   { "C61",	N_("Stylus C61"),	3,	15,	0,	0,	0 },
   { "C62",	N_("Stylus C62"),	3,	15,	0,	0,	0 },
+  { "C63",	N_("Stylus C63"),	4,	15,	0,	1,	7 },
+  { "C64",	N_("Stylus C64"),	4,	15,	0,	1,	7 },
   { "C70",	N_("Stylus C70"),	4,	15,	0,	1,	7 },
   { "C80",	N_("Stylus C80"),	4,	15,	0,	1,	7 },
   { "C82",	N_("Stylus C82"),	4,	15,	0,	1,	7 },
+  { "C83",	N_("Stylus C83"),	4,	15,	0,	1,	7 },
+  { "C84",	N_("Stylus C84"),	4,	15,	0,	1,	7 },
   { "color",	N_("Stylus Color"),	1,	7,	0,	0,	0 },
   { "pro",	N_("Stylus Color Pro"),	1,	7,	0,	0,	0 },
   { "pro-xl",	N_("Stylus Color Pro XL"),1,	7,	0,	0,	0 },
@@ -275,6 +286,14 @@ stp_printer_t printer_list[] =
   { "10000",	N_("Stylus Pro 10000"),	3,	15,	0,	0,	0 },
   { "scan2000",	N_("Stylus Scan 2000"),	3,	15,	0,	0,	0 },
   { "scan2500",	N_("Stylus Scan 2500"),	3,	15,	0,	0,	0 },
+  { "CX3100",	N_("Stylus CX-3100"),	4,	15,	0,	1,	7 },
+  { "CX3200",	N_("Stylus CX-3200"),	4,	15,	0,	1,	7 },
+  { "CX5100",	N_("Stylus CX-5100"),	4,	15,	0,	1,	7 },
+  { "CX5200",	N_("Stylus CX-5200"),	4,	15,	0,	1,	7 },
+  { "CX6300",	N_("Stylus CX-6300"),	4,	15,	0,	1,	7 },
+  { "CX6400",	N_("Stylus CX-6400"),	4,	15,	0,	1,	7 },
+  { "CX8300",	N_("Stylus CX-8300"),	4,	15,	0,	1,	7 },
+  { "CX8400",	N_("Stylus CX-8400"),	4,	15,	0,	1,	7 },
   { NULL,	NULL,			0,	0,	0,	0,	0 },
 };
 
@@ -532,21 +551,35 @@ read_from_printer(int fd, char *buf, int bufsize)
   struct pollfd ufds;
 #endif
   int status;
-  int retry = 5;
+  int retry = 10;
+
+#ifdef HAVE_FCNTL_H
+  fcntl(fd, F_SETFL,
+	O_NONBLOCK | fcntl(fd, F_GETFL));
+#endif
+
   memset(buf, 0, bufsize);
+
   do
     {
 #ifdef HAVE_POLL
       ufds.fd = fd;
       ufds.events = POLLIN;
       ufds.revents = 0;
-      (void) poll(&ufds, 1, 1000);
+      if ((status = poll(&ufds, 1, 1000)) < 0)
+	break; /* poll error */
 #endif
       status = read(fd, buf, bufsize - 1);
-      if (status <= 0)
-	sleep(1);
+      if (status < 0 && errno == EAGAIN)
+	status = 0; /* not an error (read would have blocked) */
     }
   while ((status == 0) && (--retry != 0));
+
+  if (status == 0 && retry == 0)
+    fprintf(stderr, _("Read from printer timed out\n"));
+  else if (status < 0)
+    fprintf(stderr, _("Cannot read from %s: %s\n"), raw_device, strerror(errno));
+
   return status;
 }
 
@@ -638,11 +671,7 @@ do_ink_level(void)
     }
   status = read_from_printer(fd, buf, 1024);
   if (status < 0)
-    {
-      fprintf(stderr, _("Cannot read from %s: %s\n"),
-	      raw_device,strerror(errno));
-      exit(1);
-    }
+    exit(1);
   ind = buf;
   do
     ind = strchr(ind, 'I');
@@ -715,11 +744,7 @@ do_identify(void)
     }
   status = read_from_printer(fd, buf, 1024);
   if (status < 0)
-    {
-      fprintf(stderr, _("Cannot read from %s: %s\n"),
-	      raw_device, strerror(errno));
-      exit(1);
-    }
+    exit(1);
   printf("%s\n", buf);
   (void) close(fd);
   exit(0);
@@ -756,16 +781,12 @@ do_status(void)
     }
   status = read_from_printer(fd, buf, 1024);
   if (status < 0)
-    {
-      fprintf(stderr, _("Cannot read from %s: %s\n"),
-	      raw_device, strerror(errno));
-      exit(1);
-    }
+    exit(1);
   initialize_print_cmd();
   do_remote_cmd("ST", 2, 0, 0);
   add_resets(2);
   (void) write(fd, printer_cmd, bufpos);
-  (void) read(fd, buf, 1024);
+  (void) read_from_printer(fd, buf, 1024);
   while ((where = strchr(buf, ';')) != NULL)
     *where = '\n';
   printf("%s\n", buf);
@@ -910,10 +931,7 @@ get_printer(void)
 	}
       status = read_from_printer(fd, buf, 1024);
       if (status < 0)
-	{
-	  printf(_("\nCannot read from %s: %s\n"), raw_device,strerror(errno));
-	  exit(1);
-	}
+	exit(1);
       (void) close(fd);
       pos = strchr(buf, (int) ';');
       if (pos)

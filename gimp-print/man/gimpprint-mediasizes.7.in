@@ -1,6 +1,6 @@
 .\" t
-.\" $Id: gimpprint-mediasizes.7.in,v 1.2 2004/05/11 17:53:42 jlovell Exp $
-.\" Copyright (C) 2000 Roger Leigh <roger@whinlatter.uklinux.net>
+.\" $Id: gimpprint-mediasizes.7.in,v 1.3 2004/07/30 01:28:56 jlovell Exp $
+.\" Copyright (C) 2000 Roger Leigh <rleigh@debian.org>
 .\"
 .\" This program is free software; you can redistribute it and/or modify
 .\" it under the terms of the GNU General Public License as published by
@@ -41,7 +41,7 @@ w360h576	5x8		360	576
 8x10	8x10		576	720
 Statement	Manual	5.5in x 8.5in	396	612
 TabloidExtra	12x18		864	1296
-SuperB 	13x19		936	1368
+SuperB	13x19		936	1368
 .TE
 .SS Common photographic paper sizes
 .TS
@@ -170,15 +170,10 @@ lb l l n n.
 Media Size	Description	Comment	x\fR(pt)\fP	y\fR(pt)\fP
 _
 ARCHA	ArchA	9x12in	648	864
-ARCHA_transverse	ArchA transverse	12x9in	864	648
 ARCHB	ArchB	12x18in	864	1296
-ARCHB_transverse	ArchB transverse	18x12in	1296	864
-ARCHC 	ArchC	18x24in	1296	1728
-ARCHC_transverse	ArchC transverse	24x18in	1728	1296
+ARCHC	ArchC	18x24in	1296	1728
 ARCHD	ArchD	24x36in	1728	2592
-ARCHD_transverse	ArchD transverse	36x24in	2592	1728
 ARCHE	ArchE	36x48in	2592	3456
-ARCHE_transverse	ArchE transverse	48x36in	3456	2592
 .TE
 .SS Foolscap
 .TS
@@ -240,7 +235,7 @@ the terms of the GNU General Public License as published by the Free Software
 Foundation; either version 2 of the License, or (at your option) any later
 version.
 .PP
-This manual page was written by Roger Leigh (roger@whinlatter.uklinux.net)
+This manual page was written by Roger Leigh (rleigh@debian.org)
 .SH SEE ALSO
 .BR gimpprint\-color (7),
 .BR gimpprint\-dithers (7),

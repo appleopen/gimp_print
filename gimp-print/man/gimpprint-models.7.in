@@ -1,6 +1,6 @@
 .\" t
-.\" $Id: gimpprint-models.7.in,v 1.1.1.2 2004/05/03 21:30:24 jlovell Exp $
-.\" Copyright (C) 2000 Roger Leigh <roger@whinlatter.uklinux.net>
+.\" $Id: gimpprint-models.7.in,v 1.1.1.4 2004/12/22 23:49:26 jlovell Exp $
+.\" Copyright (C) 2000 Roger Leigh <rleigh@debian.org>
 .\"
 .\" This program is free software; you can redistribute it and/or modify
 .\" it under the terms of the GNU General Public License as published by
@@ -129,8 +129,6 @@ escp2\-9600	EPSON Stylus Pro 9600
 escp2\-10000	EPSON Stylus Pro 10000
 escp2\-scan2000	EPSON Stylus Scan 2000
 escp2\-scan2500	EPSON Stylus Scan 2500
-escp2\-cx3200	EPSON Stylus CX-3200
-escp2\-cx5200	EPSON Stylus CX-5200
 escp2\-cl700	EPSON CL-700
 escp2\-cl750	EPSON CL-750
 escp2\-em900c	EPSON EM-900C
@@ -140,8 +138,8 @@ escp2\-mc2000	EPSON MC-2000
 escp2\-mc5000	EPSON MC-5000
 escp2\-mc7000	EPSON MC-7000
 escp2\-mc9000	EPSON MC-9000
-escp2\-mj930c	EPSON MJ-930C
 escp2\-mj5100c	EPSON MJ-5100C
+escp2\-mj520c	EPSON MJ-520C
 escp2\-mj6000c	EPSON MJ-6000C
 escp2\-mj8000c	EPSON MJ-8000C
 escp2\-pm10000	EPSON PM-10000
@@ -167,16 +165,6 @@ escp2\-pm9000c	EPSON PM-9000C
 escp2\-pm950c	EPSON PM-950C
 escp2\-px7000	EPSON PX-7000
 escp2\-px9000	EPSON PX-9000
-pcl\-desnj\-230	HP DesignJet 230
-pcl\-desnj\-250	HP DesignJet 250
-pcl\-desnj\-430	HP DesignJet 430
-pcl\-desnj\-450	HP DesignJet 450
-pcl\-desnj\-455	HP DesignJet 455
-pcl\-desnj\-488	HP DesignJet 488
-pcl\-desnj\-700	HP DesignJet 700
-pcl\-750	HP DesignJet 750C
-pcl\-desnj\-250	HP DesignJet 2500
-pcl\-desnj\-350	HP DesignJet 3500
 pcl\-340	HP DeskJet 340
 pcl\-400	HP DeskJet 400
 pcl\-500	HP DeskJet 500
@@ -188,6 +176,7 @@ pcl\-560	HP DeskJet 560C
 pcl\-600	HP DeskJet 600/600C (Single Cartridge)
 pcl\-601	HP DeskJet 600 series (2 Cartridge)
 pcl\-690	HP DeskJet 690 series (Photo-Ink capable)
+pcl\-750	HP DesignJet 750
 pcl\-810	HP DeskJet 810C
 pcl\-812	HP DeskJet 812C
 pcl\-840	HP DeskJet 840C
@@ -220,6 +209,16 @@ lexmark\-z42	Lexmark Z42
 lexmark\-z43	Lexmark Z43
 lexmark\-z52	Lexmark Z52
 lexmark\-z53	Lexmark Z53
+olympus\-p10	Olympus P10
+olympus\-p200	Olympus P200
+olympus\-p300	Olympus P300
+olympus\-p400	Olympus P400
+olympus\-p440	Olympus P440
+canon\-cp100	Canon CP100
+canon\-cp220	Canon CP220
+sony\-updp10	Sony UP\-DP10
+fujifilm\-cx400	Fujifilm Printpix CX\-400
+fujifilm\-cx550	Fujifilm Printpix CX\-550
 .TE
 .SH COPYRIGHT
 Copyright \(co 2001 Michael Sweet (mike@easysw.com) and Robert Krawitz
@@ -230,7 +229,7 @@ the terms of the GNU General Public License as published by the Free Software
 Foundation; either version 2 of the License, or (at your option) any later
 version.
 .PP
-This manual page was written by Roger Leigh (roger@whinlatter.uklinux.net)
+This manual page was written by Roger Leigh (rleigh@debian.org)
 .SH SEE ALSO
 .BR gimpprint\-color (7),
 .BR gimpprint\-dithers (7),
